@@ -9,9 +9,6 @@
         <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
         <link href='https://fonts.googleapis.com/css?family=Sofia' rel='stylesheet'>	
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
         <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
         <link rel="stylesheet" href="{{asset('css/style2.css')}}">
         <link rel="stylesheet" media="handheld, only screen and (max-device-width: 990px)" href="{{asset('css/Home_mobile.css')}}" />
@@ -45,11 +42,11 @@
             <div class="collapse navbar-collapse " id="navbarSupportedContent">
               <ul class="navbar-nav ml-auto  navbar_right_part">
                 <li class="nav-item active">
-                  <a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
+                  <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Communities 
+                    committees 
                     <i class="arrow down"></i>
                   </a>
                   <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -66,14 +63,14 @@
                          <a class="dropdown-item" href="{{route('blender.view')}}"><img src="{{asset('img/Blender.png')}}" alt="Blender"> Blender</a>
                          <a class="dropdown-item" href="{{route('game.view')}}"><img src="{{asset('img/game-controller.png')}}" alt="Game"> Game</a> 
                          <a class="dropdown-item" href="{{route('projects.view')}}"><img src="{{asset('img/project-management.png')}}" alt="Projects"> Projects</a>
-                        
+                         <a class="dropdown-item" href="{{route('eh.view')}}"><img src="{{asset('img/english.png')}}" alt="English"> English Heros</a>
                          <a class="dropdown-item" href="{{route('ccc.view')}}"><img src="{{asset('img/video-camera.png')}}" alt="CCC"> CCC</a>
                       </div>
                     </div>
                 </div>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link " href="#aboutus">About</a>
+                  <a class="nav-link " href="{{route('aboutUs.view')}}">About</a>
                 </li>
               </ul>
             
@@ -91,13 +88,13 @@
             <img src="{{asset('img/Ellipse 10.png')}}" id="img7">
           </div>
 <!-- Background -->
-@section('content')
+@yield('content')
 
 
 
 
 
-<div class="info">
+{{-- <div class="info">
   <div class="img1about">
     <img id="aboutus" src="{{asset('img/About.png')}}" data-aos="fade-right" data-aos-duration="3000">
   </div>
@@ -113,7 +110,7 @@
     Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet<br>
     Lorem ipsum dolor sit amet</p>
   </div>
-</div>
+</div> --}}
 
  
 
@@ -151,14 +148,17 @@
           <h4>Follow Up Social Media</h4>
           
           <ul>
-            <li><i class="fab fa-twitter fa-1x"></i></li>
-              <li><i class="fab fa-facebook-f fa-1x"></i></li>
+            <li> <a href="https://twitter.com/oscgeeks?fbclid=IwAR07erATlCzqcfWuq0pRcZp4mHVoQsbHN8Kq2kPSnYYZoeVJkfc5nM0g_AQ"><i class="fab fa-twitter fa-1x"></i></a></li>
+              <li><a href="https://www.facebook.com/oscgeeks"><i class="fab fa-facebook-f fa-1x"></i></a></li>
               
-              <li><i class="fab fa-instagram fa-1x"></i></li>
-              <li><i class="fab fa-youtube fa-1x"></i></li>
+              <li><a href="https://www.instagram.com/oscgeeks/?fbclid=IwAR37GPRkG1lJ-93z6CAO4NVJ58wAud9WscYLthcvMa53-TQqrYYlJmqGcmE"><i class="fab fa-instagram fa-1x"></i></a></li>
+              <li><a href="https://www.youtube.com/channel/UCvgdICw5bI7KKTRa5ohksWg"><i class="fab fa-youtube fa-1x"></i></a></li>
           </ul>
       </div>
     </div>
+        <script src="http://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <script type="text/javascript" src="{{asset('js/Home.js')}}"></script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>

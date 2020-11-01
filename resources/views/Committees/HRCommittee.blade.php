@@ -1,4 +1,4 @@
-@extends('layout.master')
+@extends('layout.back')
 @section('content')
 <h1>HR Committee</h1>
 <form action="{{route('Insert','6')}}" method="POST">

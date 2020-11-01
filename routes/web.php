@@ -15,11 +15,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/','App\Http\Controllers\eventController@getAllCommittees')->name('homePage');
 Route::post('/registration','App\Http\Controllers\eventController@store')->name('registration');
+Route::get('/registration','App\Http\Controllers\eventController@registrationView')->name('registrationView');
 Route::get('/appointments','App\Http\Controllers\eventController@getAppointments')->name('appointmentsAjax');
 
-Route::get('/admin',function (){
-    return view('admin');
-});
+// Route::get('/admin',function (){
+//     return view('admin');
+// });
+
 
 Route::group(['prefix' => 'admin'], function () {
 
@@ -31,7 +33,7 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('/ArtCommittee/{committee_id}/{id}', 'App\Http\Controllers\AppointmentsController@deleteAppointment')->name('Delete');
 });
 Route::get('/home/registeration', 'App\Http\Controllers\AppointmentsController@registerationView')->name('registeration.meeting');
-Route::get('/home/aboutUs', 'App\Http\Controllers\AppointmentsController@aboutUsView')->name('aboutUs.view');
+Route::get('/aboutUs', 'App\Http\Controllers\AppointmentsController@aboutUsView')->name('aboutUs.view');
 Route::get('/home/art', 'App\Http\Controllers\AppointmentsController@artView')->name('art.view');
 Route::get('/home/blender', 'App\Http\Controllers\AppointmentsController@blenderView')->name('blender.view');
 Route::get('/home/ccc', 'App\Http\Controllers\AppointmentsController@cccView')->name('ccc.view');
@@ -49,8 +51,8 @@ Route::get('login', [App\Http\Controllers\Auth\LoginController::class, 'showLogi
 Route::post('login', [App\Http\Controllers\Auth\LoginController::class, 'login']);
 Route::post('logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
 
-Route::get('register', [App\Http\Controllers\Auth\RegisterController::class, 'showRegistrationForm'])->name('register');
-Route::post('register', [App\Http\Controllers\Auth\RegisterController::class, 'register']);
+// Route::get('register', [App\Http\Controllers\Auth\RegisterController::class, 'showRegistrationForm'])->name('register');
+// Route::post('register', [App\Http\Controllers\Auth\RegisterController::class, 'register']);
 
 Route::get('password/reset', [App\Http\Controllers\Auth\ForgotPasswordController::class, 'showLinkRequestForm'])->name('password.request');
 Route::post('password/email', [App\Http\Controllers\Auth\ForgotPasswordController::class, 'sendResetLinkEmail'])->name('password.email');

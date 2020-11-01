@@ -1,4 +1,4 @@
-@extends('layout.master')
+@extends('layout.back')
 @section('content')
-   <h1> disbord</h1>
+   <h1> Dashboard</h1>
 @endsection

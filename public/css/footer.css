@@ -76,14 +76,20 @@ color: #f9a826;
     margin-left: 10px;
     cursor: pointer;
 }
+.right-side>ul>li>a{
+    
+    color: #f9a826;
+
+}
 .right-side>ul>li:hover{
-    
-    background-color: #f9a826;
-    
+background-color: #f9a826;
 color: white;
 transform: rotate(360deg);
 transition-duration: 0.5s;
     
+}
+.right-side>ul>li>a:hover{
+color: white;
 }
 .right-side ul li i{
     margin-top: 7px;

@@ -5,7 +5,7 @@
     @section('cssFile')
     <style>
    /* body{
-   background-image: url("img/Registertion_Page–1.png");
+   background-image: url("img/Registertion_Page.png");
    background-size: contain;
    margin: 0px;
    padding: 0px;
@@ -22,7 +22,7 @@
    
     .register-form{
       margin-left: 10%;
-      
+      margin-top: 20vh !important;
       /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
       /* background-color:black; */
       
@@ -73,12 +73,12 @@
       <div class="container">
             <div class="row box">
               <div id='container_2'class="col-md-5 d-none d-md-block bg-dark">
-                  <h3 class="des"> Lorem ipsum dolor sit</h3>
+                  <h3 class="des"> </h3>
                   <img src="{{asset('img/Imgg.png')}}">
                 </div>
               <div id='container_3'  class="col-md-5 mr-0 bg-white text-warning">
                 <center><p class="h4 mb-4">Registeration</p></center>
-                      @if (Session::has('success'))
+              @if (Session::has('success'))
               <div class="alert alert-success" role="alert">
                   {{Session::get('success')}}
               </div>
@@ -89,7 +89,7 @@
                   </div>
               @endif
              
-                  <form action="{{route('registration')}}" method="GET" class="p-4 text-warning">
+                  <form action="{{route('registration')}}" method="POST" class="p-4 text-warning">
                     @csrf <div class="form-group">
                         <label for="name"><i ></i> Name</label>
                         <input type="text" placeholder="name"class="form-control" name="studentName" required>
@@ -115,100 +115,69 @@
                     <div class="row">
                     <div class="col-md-6">
                     <label >College</label>
-                    <input type="text" value="FCIS" class="form-control" name="studentCollege" required>
-
-                        <!-- <label> Department</label>
-                         <select class="form-control">
-                            <option title="General" value="Computer Science" selected>CS</option>
-                            <option title="" value="Information Systems">IS</option>
-                            <option title="" value="Computer systems">CSys</option>
-                            <option title="" value="Scientific calculations">SC</option>
-                            <option title="" value="Bioinformatics systems">Bio</option>
-                            <option title="" value="Intelligence">AI</option>
-                            <option title="" value="Software Engineering">Software Engineering</option>
-                            <option title="" value="Information Security">Other</option>
-                          </select> -->
+                    <input type="text" class="form-control" name="studentCollege" required>
+                    @error('studentCollege')
+                    <div class="text-danger">{{ $message }}</div>
+                    @enderror
                     </div>
                     <div class="col-md-6">
                       <label > Year</label>
                        <select class="form-control"  name="studentYear" required>
-                        
+                            <option selected="selected" hidden></option>
                             <option value="1" selected>1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
                             <option value="4">4</option>
-                          </select>
+                        </select>
+                        @error('studentYear')
+                          <div class="text-danger">{{ $message }}</div>
+                        @enderror
                     </div>
                     </div>
                     <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                     
-                        <label> Commitee A</label>
+                        <label> Commitee</label>
                          <select class="form-control" name="studentCommitteeA" id="studentCommitteeA" required>
                           <option selected="selected" hidden></option>
-                        
-                            <option title="General" value="art" selected>Art & Design</option>
-                            <option title="" value="web">Web</option>
-                            <option title="" value="linus">Linux</option>
-                            <option title="" value="projects">Projects</option>
-                            <option title="" value="ccc">CCC</option>
-                            <option title="" value="blender">Blender</option>
-                            <option title="" value="game">Game</option>
-                            <option title="" value="english heroes">English Heroes</option>
-                            <option title="" value="pr">PR</option>
-                            <option title="" value="hr">HR</option>
-                            <option title="" value="lr">LR</option>
+                            @foreach ($committees as $committee)
+                              <option value="{{$committee->name}}">{{$committee->name}}</option>
+                            @endforeach
                           </select>
-                    </div>
-                    <div class="col-md-6">
-                      <label > Commitee B</label>
-                      <select class="form-control"  name="studentCommitteeB" id="studentCommitteeB" required>
-                        <option value='' selected disabled ></option>
-                        <option title="General" value="art" >Art & Design</option>
-                            <option title="" value="web" selected>Web</option>
-                            <option title="" value="linus">Linux</option>
-                            <option title="" value="projects">Projects</option>
-                            <option title="" value="ccc">CCC</option>
-                            <option title="" value="blender">Blender</option>
-                            <option title="" value="game">Game</option>
-                            <option title="" value="english heroes">English Heroes</option>
-                            <option title="" value="pr">PR</option>
-                            <option title="" value="hr">HR</option>
-                            <option title="" value="lr">LR</option>
-                          </select>
+                          @error('studentCommitteeA')
+                          <div class="text-danger">{{ $message }}</div>
+                          @enderror
                     </div>
                     </div>
                     <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                     
-                        <label> Date Committee A</label>
-                         <input type="date"  class="form-control" name="studentDateA" id="studentDateA" required>
-                         
-                          
-                    </div>
-                    <div class="col-md-6">
-                      <label > Date Committee B</label>
-                       <input type="date" class="form-control">
-                           
+                        <label> Interview Date</label>
+                        <select class="form-control" name="studentDateA" id="studentDateA" required>
+                        </select>
+                        @error('studentDate')
+                        <div class="text-danger">{{ $message }}</div>
+                        @enderror
                           
                     </div>
                     </div>
+                    
                     <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                     
-                        <label> Time Committee A</label>
-                         <input type="time" class="form-control" name="studentTimeA" id="studentTimeA"  required>
-                          
+                        <label> Interview Time</label>
+                        <select class="form-control" name="studentTimeA" id="studentTimeA"  required>
+
+
+                        </select>
+                        @error('studentTime')
+                        <div class="text-danger">{{ $message }}</div>
+                        @enderror
                         
                             
                           
                     </div>
-                    <div class="col-md-6">
-                      <label > Time Committee A</label>
-                       <input type="time" class="form-control" name="studentTimeB" id="studentTimeB"required >
-                          
-                          
-                    </div>
+                   
                     </div>
                     <!-- <div class="form-group">
                       <label for="email"><i></i> Interview time</label>
@@ -223,9 +192,16 @@
             </div>
         </div>
     </div>
+    
+        <script src="http://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+
+
     <script>
 
 $(document).ready(function () {
+  
 
     document.getElementById("studentCommitteeA").onchange=function()
     {
@@ -243,17 +219,27 @@ $(document).ready(function () {
 
                 var cartonaDate='<option selected="selected" hidden></option>';
                 var cartonaTime=`<option selected="selected" hidden></option>`;
-                if (response.length>0)
+                if (response.length > 0)
                 {
                     response.forEach(element => {
-                        if(element.numberOfSeats>0)
+                        if(element.numberOfSeats > 0)
                         {
                             cartonaDate+=`<option value="${element.date+'#'+element.id}">${element.date}</option>`;
                             cartonaTime+=`<option value="${element.time}">${element.time}</option>`;
                         }
                     });
-                    console.log(cartonaDate);
-                    console.log(cartonaTime);
+                    let counter = 0;
+                    for(let i = 0; i < response.length; i++){
+                      if(response[i].numberOfSeats <= 0){
+                        counter++;
+                      }
+                    }
+                    if(counter == response.length){
+                      cartonaDate+=`<option value="waitting">waitting</option>`;
+                      cartonaTime+=`<option value="waitting">waitting</option>`;
+                      
+                    }
+                    
 
                     $("#studentDateA").html(cartonaDate) ;
                     $("#studentTimeA").html(cartonaTime) ;
@@ -275,54 +261,54 @@ $(document).ready(function () {
 
 });
 
-$(document).ready(function () {
+// $(document).ready(function () {
 
-  document.getElementById("studentCommitteeB").onchange=function()
-    {
-        var index = this.selectedIndex;
-        $.ajax({
-            type: "get",
-            url: "{{route('appointmentsAjax')}}",
-            data:{
-                '_token':"{{csrf_token()}}",
-                'name':index,
-            },
-            success: function (response) {
+//   document.getElementById("studentCommitteeB").onchange=function()
+//     {
+//         var index = this.selectedIndex;
+//         $.ajax({
+//             type: "get",
+//             url: "{{route('appointmentsAjax')}}",
+//             data:{
+//                 '_token':"{{csrf_token()}}",
+//                 'name':index,
+//             },
+//             success: function (response) {
 
-                // console.log(response);
+//                 // console.log(response);
 
-                var cartonaDate='<option selected="selected" hidden></option>';
-                var cartonaTime=`<option selected="selected" hidden></option>`;
+//                 var cartonaDate='<option selected="selected" hidden></option>';
+//                 var cartonaTime=`<option selected="selected" hidden></option>`;
 
-                if (response.length>0)
-                {
-                    response.forEach(element => {
-                        if(element.numberOfSeats>0)
-                        {
-                            cartonaDate+=`<option value="${element.date+'#'+element.id}">${element.date}</option>`;
-                            cartonaTime+=`<option value="${element.time}">${element.time}</option>`;
-                        }
-                    });
-                    console.log(cartonaDate);
-                    console.log(cartonaTime);
+//                 if (response.length>0)
+//                 {
+//                     response.forEach(element => {
+//                         if(element.numberOfSeats>0)
+//                         {
+//                             cartonaDate+=`<option value="${element.date+'#'+element.id}">${element.date}</option>`;
+//                             cartonaTime+=`<option value="${element.time}">${element.time}</option>`;
+//                         }
+//                     });
+//                     console.log(cartonaDate);
+//                     console.log(cartonaTime);
 
-                    $("#studentDateB").html(cartonaDate) ;
-                    $("#studentTimeB").html(cartonaTime) ;
-                }
-                else
-                {
-                    cartonaDate+=`<option value="waitting">waitting</option>`;
-                    cartonaTime+=`<option value="waitting">waitting</option>`;
-                    $("#studentDateB").html(cartonaDate) ;
-                    $("#studentTimeB").html(cartonaTime) ;
-                }
-            },
-            error:function(reject){
-                console.log(reject);
-            }
-        });
-    };
-});
+//                     $("#studentDateB").html(cartonaDate) ;
+//                     $("#studentTimeB").html(cartonaTime) ;
+//                 }
+//                 else
+//                 {
+//                     cartonaDate+=`<option value="waitting">waitting</option>`;
+//                     cartonaTime+=`<option value="waitting">waitting</option>`;
+//                     $("#studentDateB").html(cartonaDate) ;
+//                     $("#studentTimeB").html(cartonaTime) ;
+//                 }
+//             },
+//             error:function(reject){
+//                 console.log(reject);
+//             }
+//         });
+//     };
+// });
 
 </script>
     

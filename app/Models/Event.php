@@ -17,12 +17,8 @@ class Event extends Model
         'college',
         'grade',
         'committee_A',
-        'committee_B',
         'dateCommittee_A',
         'timeCommittee_A',
-        'dateCommittee_B',
-        'timeCommittee_B'
-
     ];
     protected $hidden=['created_at','updated_at'];
 }

@@ -48,9 +48,9 @@ class AppointmentsController extends Controller
         public function  webView(){
             return view('Committees.web');
         }
-        // public function  welcomeView(){
-        //     return view('welcome');
-        // }
+        public function  welcomeView(){
+            return view('Committees.home');
+        }
  
     public function insertAppoitment(Request $request ,$committee_id)
     {

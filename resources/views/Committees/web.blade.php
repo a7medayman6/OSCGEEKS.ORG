@@ -1,18 +1,19 @@
 @extends('layout.master')
 @section('title')
-    Open Source Community | Web Commitee
+    Open Source Community | Web Committee
     @endsection
     @section('cssFile')
-<link rel ="stylesheet" href="css/style.css">
+<link rel ="stylesheet" href="{{asset('css/style.css')}}">
 @endsection
 @section('content')
 <div class="topTopic">
-    <img class="c_logo" src="committees_img/Web.svg" alt="Icon Pic">
+    <img class="c_logo" src="{{asset('committees_img/Web.svg')}}" alt="Icon Pic">
             <h1 class="monospace"> Web Committee</h1>
             <div>
-            <p class="description">Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet 
-                Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet <br>Lorem ipsum dolor sit amet</p>
-            <p class="linkage monospace"> See Our Project On <a href="url"><img class="behance" src="committees_img/behance-logo.png" style="width: 68px; height:68px" alt="behance logo"></a> </p>
+            <p class="description"><strong>A Place for Web Rockstars.</strong><br>
+            In Web Committee we focus on both the front end & the back end of websites & web applications.
+            We operate using modern technlogies and methodologies and that what sets us apart.</p>
+            
         </div>
   	</div>
       @endsection
