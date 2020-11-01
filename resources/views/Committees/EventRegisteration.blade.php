@@ -170,7 +170,7 @@
                     <div class="row">
                       <div class="col-md-12">
                           <label> Commitee B</label>
-                          <select class="form-control" name="studentCommitteeB" id="studentCommitteeB" required>
+                          <select class="form-control" name="studentCommitteeB" id="studentCommitteeB">
                             <option selected="selected" hidden></option>
                               @foreach ($committees as $committee)
                                 <option value="{{$committee->name}}">{{$committee->name}}</option>
@@ -185,7 +185,7 @@
                     <div class="col-md-6">
 
                         <label> Committee Date B</label>
-                        <select class="form-control" name="studentDateB" id="studentDateB" required>
+                        <select class="form-control" name="studentDateB" id="studentDateB" >
                         </select>
                         @error('studentDateB')
                         <div class="text-danger">{{ $message }}</div>
@@ -193,7 +193,7 @@
                     </div>
                       <div class="col-md-6">
                           <label> Committee Time B</label>
-                          <select class="form-control" name="studentTimeB" id="studentTimeB"  required>
+                          <select class="form-control" name="studentTimeB" id="studentTimeB"  >
                           </select>
                           @error('studentTimeB')
                           <div class="text-danger">{{ $message }}</div>

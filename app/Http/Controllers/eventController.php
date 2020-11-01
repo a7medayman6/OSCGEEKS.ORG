@@ -68,7 +68,7 @@ class eventController extends Controller
             $member->dateCommittee_B=$request->studentDateB;
             $member->timeCommittee_B=$request->studentTimeB;
         }
-        else
+        else if($request->studentDateB !='')
         {
             $allString=$request->studentDateB;
             $allString= explode('#',$allString);
@@ -128,6 +128,14 @@ class eventController extends Controller
         $committees = new Committees();
         $committees = $committees->get();
         return view('Committees.EventRegisteration')->with('committees',$committees);
+    }
+
+    public function deleteMember($id)
+    {
+        $member= Event::findOrFail($id);
+        $member->delete();
+        
+        return redirect()->route('EventMembers');
     }
 }
 
