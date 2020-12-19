@@ -36,8 +36,8 @@
                             <td>{{$member->committee_A}}</td>
                             <td>{{$member->dateCommittee_A}}</td>
                             <td>{{$member->timeCommittee_A}}</td>
-                            {{-- <td>{{$member->committee_B}}</td>
-                            <td>{{$member->dateCommittee_B}}</td>
+                            <td>{{$member->committee_B}}</td>
+                            {{-- <td>{{$member->dateCommittee_B}}</td>
                             <td>{{$member->timeCommittee_B}}</td> --}}
                         </tr>
                     @endforeach

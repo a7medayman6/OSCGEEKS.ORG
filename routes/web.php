@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/','App\Http\Controllers\eventController@getAllCommittees')->name('homePage');
-Route::post('/registration','App\Http\Controllers\eventController@store')->name('registration');
+// Route::post('/registration','App\Http\Controllers\eventController@store')->name('registration');
 Route::get('/registration','App\Http\Controllers\eventController@registrationView')->name('registrationView');
 Route::get('/appointments','App\Http\Controllers\eventController@getAppointments')->name('appointmentsAjax');
 

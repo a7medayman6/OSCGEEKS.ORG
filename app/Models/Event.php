@@ -19,6 +19,7 @@ class Event extends Model
         'committee_A',
         'dateCommittee_A',
         'timeCommittee_A',
+        'committee_B'
     ];
     protected $hidden=['created_at','updated_at'];
 }

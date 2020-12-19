@@ -13,7 +13,6 @@ class eventController extends Controller
 {
     public function store(StoreStudentData $request)
     {
-        
         $member=new Event();
         $Exist = Event::where('phone',$request->studentPhone)->first();
         if($Exist > '0')
@@ -26,11 +25,11 @@ class eventController extends Controller
         $member->college=$request->studentCollege;
         $member->studentYear=$request->studentYear;
         $member->committee_A=$request->studentCommitteeA;
-        // $member->committee_B=$request->studentCommitteeB;
+        $member->committee_B=$request->studentCommitteeB;
         if($request->studentDateA == "waitting")
         {
             $member->dateCommittee_A=$request->studentDateA;
-            $member->timeCommittee_A=$request->studentTimeA;
+            // $member->timeCommittee_A=$request->studentTimeA;
         }
         else
         {
@@ -51,11 +50,11 @@ class eventController extends Controller
             }else
             {
                 $studentDateA="waitting";
-                $request->studentTimeA="waitting";
+                // $request->studentTimeA="waitting";
             }
 
             $member->dateCommittee_A=$studentDateA;
-            $member->timeCommittee_A=$request->studentTimeA;
+            // $member->timeCommittee_A=$request->studentTimeA;
         }
 
         // if($request->studentDateB == "waitting")

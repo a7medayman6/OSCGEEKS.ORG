@@ -12,7 +12,7 @@
                  <div class="home_title ">
                      <h1> We are Open Source Community</h1>
                      <p>Our goal is to make you ready for real world Jobs & Challenges. <br> Good enough for you? Register now</p> 
-                 <a href="{{route('registrationView')}}" ><button style="width:auto !important" type="button" class="btn btn-warning btn_style regiteration_btn" >Register</button></a>
+                 <a href="{{route('registrationView')}}" ><button style="width:auto !important" type="button" class="btn btn-warning btn_style regiteration_btn" disabled>Regestration is closed</button></a>
   
                 </div>
                  <div class="home_image ">
