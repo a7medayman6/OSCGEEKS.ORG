@@ -19,21 +19,21 @@
         font-weight: bold;
         margin-left: 100px;
     }
-   
+
     .register-form{
       margin-left: 10%;
       margin-top: 20vh !important;
       /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
       /* background-color:black; */
-      
+
     }
     .box{
-        
-        
+
+
     }
     .form-control{
       border-radius: 15px;
-      
+
     }
     #container_2{
       border-top-left-radius: 15%;
@@ -46,10 +46,10 @@
       border-top-right-radius: 15%;
     }
     /* div.row {
-       
+
        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-      box-shadow:2px 4px 8px 0 rgba(0, 0, 0, 0.2); 
-  
+      box-shadow:2px 4px 8px 0 rgba(0, 0, 0, 0.2);
+
   } */
   .mb-4{
       margin-top: 20px;
@@ -88,7 +88,7 @@
                       {{Session::get('fail')}}
                   </div>
               @endif
-             
+
                   <form action="{{route('registration')}}" method="POST" class="p-4 text-warning">
                     @csrf <div class="form-group">
                         <label for="name"><i ></i> Name *</label>
@@ -104,7 +104,7 @@
                   <div class="text-danger">{{ $message }}</div>
                   @enderror
                   </div>
-                    
+
                     <div class="form-group">
                         <label for="pwd"> Mobile Number *</label>
                         <input type="tel" name="studentPhone" class="form-control" title="الرجاء ادخل  رقم الهاتف" placeholder="01*********" pattern="[0-9]{11}" required>
@@ -168,12 +168,13 @@
                         <label> Date & Time *</label>
                         <select class="form-control" name="studentDateA" id="studentDateA" required>
                         </select>
-                        @error('studentDate')
+                        @error('studentDateA')
                         <div class="text-danger">{{ $message }}</div>
                         @enderror
-                          
                     </div>
+                      
                     </div>
+                    
                     
                     {{-- <div class="row">
                     <div class="col-md-12">
@@ -182,13 +183,12 @@
                         <select class="form-control" name="studentTimeA" id="studentTimeA"  required>
 
 
+                        <label> Committee Date B</label>
+                        <select class="form-control" name="studentDateB" id="studentDateB" >
                         </select>
-                        @error('studentTime')
+                        @error('studentDateB')
                         <div class="text-danger">{{ $message }}</div>
                         @enderror
-                        
-                            
-                          
                     </div>
                    
                     </div> --}}
@@ -207,7 +207,7 @@
             </div>
         </div>
     </div>
-    
+
         <script src="http://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
@@ -216,7 +216,7 @@
     <script>
 
 $(document).ready(function () {
-  
+
 
     document.getElementById("studentCommitteeA").onchange=function()
     {
@@ -254,7 +254,7 @@ $(document).ready(function () {
                       // cartonaTime+=`<option value="waitting">waitting</option>`;
                       
                     }
-                    
+
 
                     $("#studentDateA").html(cartonaDate) ;
                     // $("#studentTimeA").html(cartonaTime) ;
@@ -276,54 +276,65 @@ $(document).ready(function () {
 
 });
 
-// $(document).ready(function () {
+$(document).ready(function () {
 
-//   document.getElementById("studentCommitteeB").onchange=function()
-//     {
-//         var index = this.selectedIndex;
-//         $.ajax({
-//             type: "get",
-//             url: "{{route('appointmentsAjax')}}",
-//             data:{
-//                 '_token':"{{csrf_token()}}",
-//                 'name':index,
-//             },
-//             success: function (response) {
 
-//                 // console.log(response);
+  document.getElementById("studentCommitteeB").onchange=function()
+  {
+      var index = this.selectedIndex;
+      $.ajax({
+          type: "get",
+          url: "{{route('appointmentsAjax')}}",
+          data:{
+              '_token':"{{csrf_token()}}",
+              'name':index,
+          },
+          success: function (response) {
 
-//                 var cartonaDate='<option selected="selected" hidden></option>';
-//                 var cartonaTime=`<option selected="selected" hidden></option>`;
+              // console.log(response);
 
-//                 if (response.length>0)
-//                 {
-//                     response.forEach(element => {
-//                         if(element.numberOfSeats>0)
-//                         {
-//                             cartonaDate+=`<option value="${element.date+'#'+element.id}">${element.date}</option>`;
-//                             cartonaTime+=`<option value="${element.time}">${element.time}</option>`;
-//                         }
-//                     });
-//                     console.log(cartonaDate);
-//                     console.log(cartonaTime);
+              var cartonaDate='<option selected="selected" hidden></option>';
+              var cartonaTime=`<option selected="selected" hidden></option>`;
+              if (response.length > 0)
+              {
+                  response.forEach(element => {
+                      if(element.numberOfSeats > 0)
+                      {
+                          cartonaDate+=`<option value="${element.date+'#'+element.id}">${element.date}</option>`;
+                          cartonaTime+=`<option value="${element.time}">${element.time}</option>`;
+                      }
+                  });
+                  let counter = 0;
+                  for(let i = 0; i < response.length; i++){
+                    if(response[i].numberOfSeats <= 0){
+                      counter++;
+                    }
+                  }
+                  if(counter == response.length){
+                    cartonaDate+=`<option value="waitting">waitting</option>`;
+                    cartonaTime+=`<option value="waitting">waitting</option>`;
 
-//                     $("#studentDateB").html(cartonaDate) ;
-//                     $("#studentTimeB").html(cartonaTime) ;
-//                 }
-//                 else
-//                 {
-//                     cartonaDate+=`<option value="waitting">waitting</option>`;
-//                     cartonaTime+=`<option value="waitting">waitting</option>`;
-//                     $("#studentDateB").html(cartonaDate) ;
-//                     $("#studentTimeB").html(cartonaTime) ;
-//                 }
-//             },
-//             error:function(reject){
-//                 console.log(reject);
-//             }
-//         });
-//     };
-// });
+                  }
+
+
+                  $("#studentDateB").html(cartonaDate) ;
+                  $("#studentTimeB").html(cartonaTime) ;
+              }
+              else
+              {
+                  cartonaDate+=`<option value="waitting">waitting</option>`;
+                  cartonaTime+=`<option value="waitting">waitting</option>`;
+                  $("#studentDateB").html(cartonaDate) ;
+                  $("#studentTimeB").html(cartonaTime) ;
+              }
+
+          },
+          error:function(reject){
+              console.log(reject);
+          }
+      });
+  };
+
+});
 
 </script>
-    

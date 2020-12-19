@@ -17,7 +17,12 @@ class eventController extends Controller
         $Exist = Event::where('phone',$request->studentPhone)->first();
         if($Exist > '0')
         {
-            return redirect()->back()->with(['fail'=>'Member Already Exist']);
+            return redirect()->back()->with(['fail'=>'Member Already Exist!']);
+        }
+
+        if($request->studentCommitteeA == $request->studentCommitteeB)
+        {
+            return redirect()->back()->with(['fail'=>"Don't Choose the Same Committee Twice!"]);
         }
         $member->name=$request->studentName;
         $member->email=$request->studentEmail;
@@ -57,44 +62,44 @@ class eventController extends Controller
             // $member->timeCommittee_A=$request->studentTimeA;
         }
 
-        // if($request->studentDateB == "waitting")
-        // {
-        //     $member->dateCommittee_B=$request->studentDateB;
-        //     $member->timeCommittee_B=$request->studentTimeB;
-        // }
-        // else
-        // {
-        //     $allString=$request->studentDateB;
-        //     $allString= explode('#',$allString);
-        //     $studentDateB=$allString[0];
-        //     $appointment_id=$allString[1];
+        if($request->studentDateB == "waitting")
+        {
+            $member->dateCommittee_B=$request->studentDateB;
+            $member->timeCommittee_B=$request->studentTimeB;
+        }
+        else if($request->studentDateB !='')
+        {
+            $allString=$request->studentDateB;
+            $allString= explode('#',$allString);
+            $studentDateB=$allString[0];
+            $appointment_id=$allString[1];
 
-        //     $row=new Appointments();
-        //     $row=$row->findOrFail($appointment_id);
+            $row=new Appointments();
+            $row=$row->findOrFail($appointment_id);
 
-        //     if ($row->numberOfSeats>0) {
+            if ($row->numberOfSeats>0) {
 
-        //         $newNumberOfSeats=$row->numberOfSeats - 1;
-        //         $affected = DB::table('appointments')
-        //         ->where('id', $appointment_id)
-        //         ->update(['numberOfSeats' => $newNumberOfSeats]);
-        //     }
-        //     else
-        //     {
-        //         $studentDateB="waitting";
-        //         $request->studentTimeB="waitting";
-        //     }
+                $newNumberOfSeats=$row->numberOfSeats - 1;
+                $affected = DB::table('appointments')
+                ->where('id', $appointment_id)
+                ->update(['numberOfSeats' => $newNumberOfSeats]);
+            }
+            else
+            {
+                $studentDateB="waitting";
+                $request->studentTimeB="waitting";
+            }
             
-        //     $member->dateCommittee_B=$studentDateB;
-        //     $member->timeCommittee_B=$request->studentTimeB;
-        // }
+            $member->dateCommittee_B=$studentDateB;
+            $member->timeCommittee_B=$request->studentTimeB;
+        }
 
         $status = $member->saveOrFail();
 
         if ($status) {
-            return redirect()->back()->with(['success'=>'Registration Successfully']);
+            return redirect()->back()->with(['success'=>'Registration Successfully!']);
         } else {
-            return redirect()->back()->with(['fail'=>'Regestration Fail']);
+            return redirect()->back()->with(['fail'=>'Regestration Fail!']);
         }
     }
     public function getAllMembers()
@@ -122,6 +127,14 @@ class eventController extends Controller
         $committees = new Committees();
         $committees = $committees->get();
         return view('Committees.EventRegisteration')->with('committees',$committees);
+    }
+
+    public function deleteMember($id)
+    {
+        $member= Event::findOrFail($id);
+        $member->delete();
+        
+        return redirect()->route('EventMembers');
     }
 }
 

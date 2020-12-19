@@ -19,9 +19,10 @@
                     <th scope="col">ComA</th>
                     <th scope="col">DateComA</th>
                     <th scope="col">TimeComA</th>
-                    {{-- <th scope="col">ComB</th>
+                    <th scope="col">ComB</th>
                     <th scope="col">DateComB</th>
-                    <th scope="col">TimeComB</th> --}}
+                    <th scope="col">TimeComB</th>
+                    <th></th>
                   </tr>
                 </thead>
                 <tbody>

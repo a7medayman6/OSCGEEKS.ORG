@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/','App\Http\Controllers\eventController@getAllCommittees')->name('homePage');
-// Route::post('/registration','App\Http\Controllers\eventController@store')->name('registration');
+Route::post('/registration','App\Http\Controllers\eventController@store')->name('registration');
 Route::get('/registration','App\Http\Controllers\eventController@registrationView')->name('registrationView');
 Route::get('/appointments','App\Http\Controllers\eventController@getAppointments')->name('appointmentsAjax');
 
@@ -26,11 +26,12 @@ Route::get('/appointments','App\Http\Controllers\eventController@getAppointments
 Route::group(['prefix' => 'admin'], function () {
 
     Route::get('/EventMembers','App\Http\Controllers\eventController@getAllMembers')->name('EventMembers');
+    Route::get('/{id}','App\Http\Controllers\eventController@deleteMember')->name('deleteMember');
 
 
-    Route::get('/ArtCommittee/{committee_id}','App\Http\Controllers\AppointmentsController@getAllAppoitments')->name('GetAll');
-    Route::post('/ArtCommittee/{committee_id}', 'App\Http\Controllers\AppointmentsController@insertAppoitment')->name('Insert');
-    Route::get('/ArtCommittee/{committee_id}/{id}', 'App\Http\Controllers\AppointmentsController@deleteAppointment')->name('Delete');
+    Route::get('/EventAppointment/{committee_id}','App\Http\Controllers\AppointmentsController@getAllAppoitments')->name('GetAll');
+    Route::post('/EventAppointment/{committee_id}', 'App\Http\Controllers\AppointmentsController@insertAppoitment')->name('Insert');
+    Route::get('/EventAppointment/{committee_id}/{id}', 'App\Http\Controllers\AppointmentsController@deleteAppointment')->name('Delete');
 });
 Route::get('/home/registeration', 'App\Http\Controllers\AppointmentsController@registerationView')->name('registeration.meeting');
 Route::get('/aboutUs', 'App\Http\Controllers\AppointmentsController@aboutUsView')->name('aboutUs.view');
