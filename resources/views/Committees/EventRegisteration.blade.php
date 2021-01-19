@@ -3,6 +3,7 @@
     Open Source Community | Event
     @endsection
     @section('cssFile')
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <style>
    /* body{
    background-image: url("img/Registertion_Page.png");
@@ -54,7 +55,6 @@
   .mb-4{
       margin-top: 20px;
       font-size: 40px;
-      font-family: 'Sofia';
       font-weight: bold;
   }
   .des{
@@ -122,7 +122,7 @@
                     </div>
                     <div class="col-md-6">
                       <label > Year *</label>
-                       <select class="form-control"  name="studentYear" required>
+                       <select name="studentYear" required>
                             <option selected="selected" hidden></option>
                             <option value="1" selected>1</option>
                             <option value="2">2</option>
@@ -138,7 +138,7 @@
                     <div class="col-md-6">
                     
                         <label> Commitee A *</label>
-                         <select class="form-control" name="studentCommitteeA" id="studentCommitteeA" required>
+                         <select name="studentCommitteeA" id="studentCommitteeA" required>
                           <option selected="selected" hidden></option>
                             @foreach ($committees as $committee)
                               <option value="{{$committee->name}}">{{$committee->name}}</option>
@@ -151,7 +151,7 @@
                     <div class="col-md-6">
                     
                       <label> Commitee B</label>
-                       <select class="form-control" name="studentCommitteeB" id="studentCommitteeB" >
+                       <select name="studentCommitteeB" id="studentCommitteeB" >
                         <option selected="selected" hidden></option>
                           @foreach ($committees as $committee)
                             <option value="{{$committee->name}}">{{$committee->name}}</option>
@@ -166,7 +166,7 @@
                     <div class="col-md-12">
                     
                         <label> Date & Time *</label>
-                        <select class="form-control" name="studentDateA" id="studentDateA" required>
+                        <select name="studentDateA" id="studentDateA" required>
                         </select>
                         @error('studentDateA')
                         <div class="text-danger">{{ $message }}</div>
@@ -201,13 +201,16 @@
                    -->
                   
                     
-                    <button type="submit" class="btn btn-warning mb-3 mt-3  form-control">Submit</button>
+                    <button style="margin-top: 20px" type="submit" class="btn">Submit</button>
                   </form>
               </div>
             </div>
         </div>
     </div>
+@endsection
 
+@section('scripts')
+    
         <script src="http://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
@@ -338,3 +341,5 @@ $(document).ready(function () {
 });
 
 </script>
+
+@endsection

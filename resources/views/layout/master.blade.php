@@ -1,168 +1,260 @@
 <html>
     <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, minimum-scale=1">
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="{{asset('css/common.css')}}" />
+  
+      @yield('cssFile')
+      
+      <link rel="stylesheet" href="{{asset ('css/queries.css')}}" />
+  
+      <link rel="stylesheet" href="{{asset('css/svg-heading.css')}}" />
+  
+      <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+  
+      <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+      <link rel="preconnect" href="https://fonts.gstatic.com">
+      <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
           
 
         <title>@yield('title')</title>
-        <link rel="stylesheet" href="{{asset('css/all.min.css')}}">
-        <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
-        <link href='https://fonts.googleapis.com/css?family=Sofia' rel='stylesheet'>	
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-        <link rel="stylesheet" href="{{asset('css/style2.css')}}">
-        <link rel="stylesheet" media="handheld, only screen and (max-device-width: 990px)" href="{{asset('css/Home_mobile.css')}}" />
         
-        @yield('cssFile')
-        <link rel="stylesheet"  media="screen" href="{{asset('css/Home.css')}}">
-        <link rel="icon" href="{{asset('img/logo22.png')}}"> 
-        <link rel="stylesheet" href="{{asset('css/footer.css')}}"/>
-        <link href="{{asset('style/all.css')}}" rel="stylesheet">
+        
         <style>
           
 </style>
     </head>
-    <body>
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-light  transparent  top_navbar ">
-            <div class="navbar-brand navbar_left_part"  >
-                <img src="{{asset('img/logo osc@2x.png')}}" alt="OSC Logo" id="logo_at_Navbar"> 
-                <img src="{{asset('img/Open Source Community.png')}}" alt="Open Source Community" id="OSC_img">
+    <body class="light">
+      <img data-aos="fade-down-right" data-aos-duration="1500" data-aos-delay="1000" id="hero-bg"
+        src="{{asset('assets/hero-bg.png')}}">
 
-            </div>
-              <div class="toggle-navbar-image"></div>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon_ "> 
-                <img src="{{asset('img/Rectangle 47.png')}}" class="nav_bar1">
-                <img src="{{asset('img/Rectangle 47.png')}}" class="nav_bar2">
-                <img src="{{asset('img/Rectangle 47.png')}}" class="nav_bar3">
-              </span>
+    <header id="myHeader">
+        <dev class="container flex">
+            <a class="logo flex" href="{{route('homePage')}}">
+                <img src="{{asset('assets/logo.svg')}}">
+                <h3>Open Source Community</h3>
+            </a>
+            <nav class="main-nav" id="main-nav">
+                <ul class="flex">
+                    <li>
+                        <a class="nav-link active" href="{{route('homePage')}}">
+                            <ion-icon class="left-icon" name="planet-outline"></ion-icon>
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <button class="nav-link flex" id="btn-committees">
+                            <ion-icon class="left-icon" name="people-circle-outline"></ion-icon>
+                            Committes
+                            <ion-icon id="down-arrow" name="chevron-down-outline"></ion-icon>
+                        </button>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="{{route('aboutUs.view')}}">
+                            <ion-icon class="left-icon" name="information-circle-outline"></ion-icon>
+                            About
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <button class="btn-hamburger" id="btn-hamburger">
+                <ion-icon id="ham" name="menu"></ion-icon>
+                <ion-icon id="close" name="close"></ion-icon>
             </button>
-          
-            <div class="collapse navbar-collapse " id="navbarSupportedContent">
-              <ul class="navbar-nav ml-auto  navbar_right_part">
-                <li class="nav-item active">
-                  <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    committees 
-                    <i class="arrow down"></i>
-                  </a>
-                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <div class="dropdown_menu_part float-left">
-                      <div class="dropdown_left_part float-left">
-                        <a class="dropdown-item" href="{{route('art.view')}}"><img src="{{asset('img/paint-palette.png')}}" alt="Art"> Art & Desgin</a>
-                        <a class="dropdown-item" href="{{route('linux.view')}}"> <img src="{{asset('img/linux.png')}}" alt="Linux"> Linux</a> 
-                        <a class="dropdown-item" href="{{route('web.view')}}"><img src="{{asset('img/web-browser.png')}}" alt="Web"> Web</a>
-                        <a class="dropdown-item" href="{{route('hr.view')}}"><img src="{{asset('img/Human Resource-Job Search-Magnifying Glass-Paper-Search.png')}}" alt="HR"> HR</a> 
-                        <a class="dropdown-item" href="{{route('pr.view')}}"><img src="{{asset('img/public-relation.png')}}" alt="PR"> PR</a>
-                        <a class="dropdown-item" href="{{route('lr.view')}}"><img src="{{asset('img/order.png')}}" alt="LR"> LR</a>
-                      </div>
-                      <div class="dropdown_right_part float-right">
-                         <a class="dropdown-item" href="{{route('blender.view')}}"><img src="{{asset('img/Blender.png')}}" alt="Blender"> Blender</a>
-                         <a class="dropdown-item" href="{{route('game.view')}}"><img src="{{asset('img/game-controller.png')}}" alt="Game"> Game</a> 
-                         <a class="dropdown-item" href="{{route('projects.view')}}"><img src="{{asset('img/project-management.png')}}" alt="Projects"> Projects</a>
-                         <a class="dropdown-item" href="{{route('eh.view')}}"><img src="{{asset('img/english.png')}}" alt="English"> English Heros</a>
-                         <a class="dropdown-item" href="{{route('ccc.view')}}"><img src="{{asset('img/video-camera.png')}}" alt="CCC"> CCC</a>
-                      </div>
-                    </div>
-                </div>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link " href="{{route('aboutUs.view')}}">About</a>
-                </li>
-              </ul>
-            
+            <nav class="hamburger-nav" id="hamburger-nav">
+                <ul>
+                    <li>
+                        <a class="nav-link active" href="{{route('homePage')}}">
+                            <ion-icon class="left-icon" name="planet-outline"></ion-icon>
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <button class="nav-link flex" id="ham-btn-committees">
+                            <ion-icon class="left-icon" name="people-circle-outline"></ion-icon>
+                            Committes
+                            <ion-icon id="ham-down-arrow" name="chevron-forward-outline"></ion-icon>
+                        </button>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="{{route('aboutUs.view')}}">
+                            <ion-icon class="left-icon" name="information-circle-outline"></ion-icon>
+                            About
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </dev>
+        <div class="commmittees-ham-nav" id="commmittees-ham-nav">
+            <div class="top">
+                <button id="btn-back">
+                    <ion-icon name="arrow-back-sharp"></ion-icon>
+                    <h3>Committees</h3>
+                </button>
             </div>
-          </nav>
-<!--  Navbar -->
+            <div class="bottom">
+                <a class="ham-dropdown-item" href="{{route('art.view')}}">
+                    <img src="{{asset('assets/icons-small/art.svg')}}" alt="art committee">
+                    Art & design
+                </a>
+                <a class="ham-dropdown-item" href="{{route('linux.view')}}">
+                    <img src="{{asset('assets/icons-small/linux.svg')}}" alt="linux committee">
+                    Linux
+                </a>
+                <a class="ham-dropdown-item" href="{{route('web.view')}}">
+                    <img src="{{asset('assets/icons-small/web.svg')}}" alt="web committee">
+                    Web
+                </a>
+                <a class="ham-dropdown-item" href="{{route('hr.view')}}">
+                    <img src="{{asset('assets/icons-small/hr.svg')}}" alt="hr committee">
+                    HR
+                </a>
+                <a class="ham-dropdown-item" href="{{route('pr.view')}}">
+                    <img src="{{asset('assets/icons-small/pr.svg')}}" alt="pr committee">
+                    PR
+                </a>
+                <a class="ham-dropdown-item" href="{{route('lr.view')}}">
+                    <img src="{{asset('assets/icons-small/lr.svg')}}" alt="lr committee">
+                    LR
+                </a>
+                <a class="ham-dropdown-item" href="{{route('blender.view')}}">
+                    <img src="{{asset('assets/icons-small/blender.svg')}}" alt="blender committee">
+                    Blender
+                </a>
+                <a class="ham-dropdown-item" href="{{route('game.view')}}">
+                    <img src="{{asset('assets/icons-small/game.svg')}}" alt="game committee">
+                    Game
+                </a>
+                <a class="ham-dropdown-item" href="{{route('projects.view')}}">
+                    <img src="{{asset('assets/icons-small/projects.svg')}}" alt="projects committee">
+                    Projects
+                </a>
+                <a class="ham-dropdown-item" href="{{route('eh.view')}}">
+                    <img src="{{asset('assets/icons-small/english.svg')}}" alt="english committee">
+                    English
+                </a>
+                <a class="ham-dropdown-item" href="{{route('ccc.view')}}">
+                    <img src="{{asset('assets/icons-small/ccc.svg')}}" alt="ccc">
+                    CCC
+                </a>
+            </div>
+        </div>
+        <div class="container dropdown">
+            <div class="lhs">
+                <a class="dropdown-item" href="{{route('art.view')}}">
+                    <img src="{{asset('assets/icons-small/art.svg')}}" alt="art committee">
+                    Art & design
+                </a>
+                <a class="dropdown-item" href="{{route('linux.view')}}">
+                    <img src="{{asset('assets/icons-small/linux.svg')}}" alt="linux committee">
+                    Linux
+                </a>
+                <a class="dropdown-item" href="{{route('web.view')}}">
+                    <img src="{{asset('assets/icons-small/web.svg')}}" alt="web committee">
+                    Web
+                </a>
+                <a class="dropdown-item" href="{{route('hr.view')}}">
+                    <img src="{{asset('assets/icons-small/hr.svg')}}" alt="hr committee">
+                    HR
+                </a>
+                <a class="dropdown-item" href="{{route('pr.view')}}">
+                    <img src="{{asset('assets/icons-small/pr.svg')}}" alt="pr committee">
+                    PR
+                </a>
+                <a class="dropdown-item" href="{{route('lr.view')}}">
+                    <img src="{{asset('assets/icons-small/lr.svg')}}" alt="lr committee">
+                    LR
+                </a>
+            </div>
+            <div class="rhs">
+                <a class="dropdown-item" href="{{route('blender.view')}}">
+                    <img src="{{asset('assets/icons-small/blender.svg')}}" alt="blender committee">
+                    Blender
+                </a>
+                <a class="dropdown-item" href="{{route('game.view')}}">
+                    <img src="{{asset('assets/icons-small/game.svg')}}" alt="game committee">
+                    Game
+                </a>
+                <a class="dropdown-item" href="{{route('projects.view')}}">
+                    <img src="{{asset('assets/icons-small/projects.svg')}}" alt="projects committee">
+                    Projects
+                </a>
+                <a class="dropdown-item" href="{{route('eh.view')}}">
+                    <img src="{{asset('assets/icons-small/english.svg')}}" alt="english committee">
+                    English
+                </a>
+                <a class="dropdown-item" href="{{route('ccc.view')}}">
+                    <img src="{{asset('assets/icons-small/ccc.svg')}}" alt="ccc">
+                    CCC
+                </a>
+            </div>
+        </div>
+    </header>
+    <main id="myMain">
 
-<!-- Background -->
-          <div class="Home_background">
-            <img src="{{asset('img/BG 1.png')}}" id="img1">
-            <img src="{{asset('img/Path 140.png')}}" id="img3">
-            <img src="{{asset('img/Ellipse 8.png')}}" id="img4">
-            <img src="{{asset('img/Ellipse 7.png')}}" id="img5">
-            <img src="{{asset('img/Ellipse 9.png')}}" id="img6">
-            <img src="{{asset('img/Ellipse 10.png')}}" id="img7">
-          </div>
-<!-- Background -->
+
 @yield('content')
 
 
-
-
-
-{{-- <div class="info">
-  <div class="img1about">
-    <img id="aboutus" src="{{asset('img/About.png')}}" data-aos="fade-right" data-aos-duration="3000">
-  </div>
-  <div class="story" data-aos="fade-right" data-aos-duration="3000">
-    <h1>Our Vision</h1>
-    <p>Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet<br>
-    Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet<br>
-    Lorem ipsum dolor sit amet</p>
-  </div>
-  <div class="story" data-aos="fade-left" data-aos-duration="3000">
-    <h1>Our Mission</h1>
-    <p>Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet<br>
-    Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet<br>
-    Lorem ipsum dolor sit amet</p>
-  </div>
-</div> --}}
-
- 
-
-
-
-
-<div class="contact" >
-			<div class="container">
-				<div class="row" data-aos="fade-up" data-aos-duration="3000">
-					<div class="part-2 col-lg-7 col-md-7 col-sm-12 col-xs-12">
-						<img src="{{asset('img/img.png')}}" alt="contact-img" style="width: 100%;">
-					</div>
-					<div class="part-1 col-lg-5 col-md-5 col-sm-12 col-xs-12">
-						<h3 class="hhh">Contact Us</h3>
-						<form>
-							<input  class="form-control" type="text" placeholder="first name">
-							<input  class="form-control" typt="text" placeholder="last name">
-							<input  class="form-control" type="text" placeholder="E-mail">
-							<textarea placeholder="Your Message..." style="height:200px"></textarea>
-							</form>
-							<button type="submit" class="btn btn-primary btn-md">Send</button>
-					</div>
-					
-				</div>
-			</div>
-    </div>
-    <div class="fotter">
-      <div class="left-side">
-          <img src="{{asset('img/logo22.png')}}"  alt="OSC" >
-          <h1 class="fotTitle">Open Source Community</h1>
-          <p class="fotDescription">FCIS Student Activity</p>
-          <p class="cpy">Copyright OSC &copy 2020</p>
-      </div>          
-      <div class="right-side">
-          <h4>Follow Up Social Media</h4>
-          
-          <ul>
-            <li> <a href="https://twitter.com/oscgeeks?fbclid=IwAR07erATlCzqcfWuq0pRcZp4mHVoQsbHN8Kq2kPSnYYZoeVJkfc5nM0g_AQ"><i class="fab fa-twitter fa-1x"></i></a></li>
-              <li><a href="https://www.facebook.com/oscgeeks"><i class="fab fa-facebook-f fa-1x"></i></a></li>
-              
-              <li><a href="https://www.instagram.com/oscgeeks/?fbclid=IwAR37GPRkG1lJ-93z6CAO4NVJ58wAud9WscYLthcvMa53-TQqrYYlJmqGcmE"><i class="fab fa-instagram fa-1x"></i></a></li>
-              <li><a href="https://www.youtube.com/channel/UCvgdICw5bI7KKTRa5ohksWg"><i class="fab fa-youtube fa-1x"></i></a></li>
-          </ul>
+<div class="container">
+  <section class="contact spacer">
+      <img src="{{asset('assets/contact.svg')}}">
+      <div class="form-container floating">
+          <h2>Contact us</h2>
+          <form>
+              <input type="text" placeholder="email">
+              <div class="name">
+                  <input marker="name" type="text" placeholder="first name">
+                  <input marker="name" type="text" placeholder="last name">
+              </div>
+              <textarea name="message" placeholder="message"></textarea>
+              <input class="btn" id="hero-btn" type="submit" value="Submit">
+          </form>
       </div>
-    </div>
-        <script src="http://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-<script type="text/javascript" src="{{asset('js/Home.js')}}"></script>
+  </section>
+</div>
+</main>
+<footer>
+<div class="container">
+  <div class="credits">
+      <a class="logo" href="index.html">
+          <img src="{{asset('assets/logo.svg')}}" alt="OSC logo">
+      </a>
+      <div class="writables">
+          <h2 id="long-name">Open Source Community</h2>
+          <h2 id="initials">O.S.C</h2>
+          <h4>FCIS Student Activity</h4>
+          <h5>Copyright OSC © 2021, All rights are reserved</h5>
+      </div>
+  </div>
+  <div class="social-media">
+      <h4>Follow us on social media</h4>
+      <a id="twitter" href="https://bit.ly/3reqLT1" target="_blank">
+          <ion-icon name="logo-twitter"></ion-icon>
+      </a>
+      <a id="facebook" href="https://bit.ly/3nz3xVL" target="_blank">
+          <ion-icon name="logo-facebook"></ion-icon>
+      </a>
+      <a id="instagram" href="https://bit.ly/37zl9eE" target="_blank">
+          <ion-icon name="logo-instagram"></ion-icon>
+      </a>
+      <a id="youtube" href="https://bit.ly/3p7RNK1" target="_blank">
+          <ion-icon name="logo-youtube"></ion-icon>
+      </a>
+  </div>
+</div>
+</footer>
+    
+<script type="module" src="https://unpkg.com/ionicons@5.2.3/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule="" src="https://unpkg.com/ionicons@5.2.3/dist/ionicons/ionicons.js"></script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
-  AOS.init();
+    AOS.init();
 </script>
-    </body>
+<script src="{{asset('js/app.js')}}"></script>
+<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+@yield('scripts')
+</body>
 </html>
