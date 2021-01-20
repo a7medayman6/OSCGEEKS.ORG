@@ -1,143 +1,142 @@
 @extends('layout.master')
 @section('title')
     Open Source Community | Home
-    @endsection
+@endsection
 @section('cssFile')
-<link rel="stylesheet"  media="screen" href="{{asset('css/Home.css')}}">
+
+<link rel="stylesheet" href="{{asset('css/queries/committiee.css')}}" />
+<link rel="stylesheet" href="{{asset('css/committee.css')}}" />
 @endsection
 @section('content')
-    <!-- Home -->
-    <div class="Home_Middle_Part">
-             <div class="Home_top_part">
-                 <div class="home_title ">
-                     <h1> We are Open Source Community</h1>
-                     <p>Our goal is to make you ready for real world Jobs & Challenges. <br> Good enough for you? Register now</p> 
-                 <a href="{{route('registrationView')}}" ><button style="width:auto !important" type="button" class="btn btn-warning btn_style regiteration_btn" disabled>Regestration is closed</button></a>
-  
-                </div>
-                 <div class="home_image ">
-                     <img src="img/Img22.png"> 
-                 </div>
-                 <img  id="img2">
-             </div>
-             
-             <div class="extra_description"> 
-                 <h3>Our Committees</h3>
-                 <p>What sets us apart from the others is our many great committees. Checkout every committee and choose your place.</p>
-             </div>
-        </div>
-<!--Home -->     
-<!-- Communities-->
-<div class="cards_container">
-<div class="cards" id="cards_list" >
-  <!--community 1-->
-<div class="card" style="width: 18rem;" >
-  <img class="card-img-top" src="img/slider-home/Group 50@2x.png" alt="Card image cap">
-  <div class="card-body crd_body">
-    <h5 class="card-title">Art</h5>
-    
-    <a href="{{route('art.view')}}"><button type="button" class="btn btn-warning btn_style" >Go</button></a>
-  </div>
-</div> 
- <!--community 2-->
- <div class="card" style="width: 18rem;">
-  <img class="card-img-top" src="img/slider-home/Group 60@2x.png" alt="Card image cap">
-  <div class="card-body crd_body">
-    <h5 class="card-title">Linux</h5>
-  
-    <a href="{{route('linux.view')}}"><button type="button" class="btn btn-warning btn_style" >Go</button></a>
-  </div>
-</div> 
- <!--community 3-->
- <div class="card" style="width: 18rem;">
-  <img class="card-img-top" src="img/slider-home/Group 57@2x.png" alt="Card image cap">
-  <div class="card-body crd_body">
-    <h5 class="card-title">CCC</h5>
 
-    <a href="{{route('ccc.view')}}"><button type="button" class="btn btn-warning btn_style" >Go</button></a>
+<div class="container">
+  <section class="hero flex">
+      <div>
+          <h1 data-aos="fade-up" data-aos-duration="750" data-aos-delay="0">We are Open Source Community</h1>
 
-  </div>
-</div> 
- <!--community 4-->
- <div class="card" style="width: 18rem;">
-  <img class="card-img-top" src="img/slider-home/Group 58@2x.png" alt="Card image cap">
-  <div class="card-body crd_body">
-    <h5 class="card-title">English Heroes</h5>
-    
-    <a href="{{route('eh.view')}}"><button type="button" class="btn btn-warning btn_style" >Go</button></a>
-
-  </div>
-</div> 
- <!--community 5-->
- <div class="card" style="width: 18rem;">
-  <img class="card-img-top" src="img/slider-home/Group 59@2x.png" alt="Card image cap">
-  <div class="card-body crd_body">
-    <h5 class="card-title">Web</h5>
-   
-    <a href="{{route('web.view')}}"><button type="button" class="btn btn-warning btn_style" >Go</button></a>
-
-  </div>
-</div> 
- <!--community 6-->
- <div class="card" style="width: 18rem;">
-  <img class="card-img-top" src="img/slider-home/Group 54@2x.png" alt="Card image cap">
-  <div class="card-body crd_body">
-    <h5 class="card-title">HR</h5>
-    
-    <a href="{{route('hr.view')}}"><button type="button" class="btn btn-warning btn_style" >Go</button></a>
-  </div>
-</div> 
- <!--community 7-->
- <div class="card" style="width: 18rem;">
-  <img class="card-img-top" src="img/slider-home/Group 55@2x.png" alt="Card image cap">
-  <div class="card-body crd_body">
-    <h5 class="card-title">PR</h5>
-    
-    <a href="{{route('pr.view')}}"><button type="button" class="btn btn-warning btn_style" >Go</button></a>
-  </div>
-</div> 
- <!--community 8-->
- <div class="card" style="width: 18rem;">
-  <img class="card-img-top" src="img/slider-home/Group 53@2x.png" alt="Card image cap">
-  <div class="card-body crd_body">
-    <h5 class="card-title">LR</h5>
-    
-    <a href="{{route('lr.view')}}"><button type="button" class="btn btn-warning btn_style" >Go</button></a>
-  </div>
-</div> 
- <!--community 9-->
- <div class="card" style="width: 18rem;">
-  <img class="card-img-top" src="img/slider-home/Group 1@2x.png" alt="Card image cap">
-  <div class="card-body crd_body">
-    <h5 class="card-title">Blender</h5>
-    
-    <a href="{{route('blender.view')}}"><button type="button" class="btn btn-warning btn_style" >Go</button></a>
-  </div>
-</div> 
- <!--community 10-->
- <div class="card" style="width: 18rem;">
-  <img class="card-img-top" src="img/slider-home/Group 52@2x.png" alt="Card image cap">
-  <div class="card-body crd_body">
-    <h5 class="card-title">Game</h5>
-   
-    <a href="{{route('game.view')}}"><button type="button" class="btn btn-warning btn_style" >Go</button></a>
-  </div>
-</div> 
- <!--community 11-->
- <div class="card" style="width: 18rem;">
-  <img class="card-img-top" src="img/slider-home/Group 56@2x.png" alt="Card image cap">
-  <div class="card-body crd_body">
-    <h5 class="card-title">Projects</h5>
-    
-    <a href="{{route('projects.view')}}"><button type="button" class="btn btn-warning btn_style" >Go</button></a>
-  </div>
-</div> 
- <!--community 12-->
-  
+          <p data-aos="fade-up" data-aos-duration="750" data-aos-delay="150">Our goal is to make you ready for
+              real world Jobs &
+              Challenges.
+              Good enough for you? Register now</p>
+          <a data-aos="fade-up" data-aos-duration="750" data-aos-delay="500" class="btn" id="hero-btn"
+              href="registeration-closed.html">
+              Register now
+              <ion-icon name="arrow-forward-outline"></ion-icon>
+          </a>
+      </div>
+      <img class="hero-img" src="assets/hero.svg">
+  </section>
 </div>
-<div class="arrows_swap">
- <button onclick="Move_Menu_left()"><img src="img/Arrow L.png" id="left-arrow"></button>
- <button onclick="Move_Menu_right()"><img src="img/Arrow R.png" id="right-arrow"></button>
-</div>
+
+<div class="committiees spacer">
+  <div class="container">
+      <h2>Our Committees</h2>
+      <p>What sets us apart from the others is our many great committees.
+          Checkout every committee <br> and choose your place.
+      </p>
+  </div>
+
+  <div class="committees-container gallery js-flickity" data-flickity-options='{ "wrapAround": true }'
+      id="committees-container">
+      <a class="committee" href="{{route('art.view')}}">
+          <div>
+              <img src="assets/committe_icons/art.png" alt="Art committee">
+              <p class="commmittee-name">
+                  Art
+                  <ion-icon name="arrow-forward-outline"></ion-icon>
+              </p>
+          </div>
+      </a>
+      <a class="committee" href="{{route('linux.view')}}">
+          <div>
+              <img src="assets/committe_icons/linux.png" alt="Linux committee">
+              <p class="commmittee-name">
+                  Linux
+                  <ion-icon name="arrow-forward-outline"></ion-icon>
+              </p>
+          </div>
+      </a>
+      <a class="committee" href="{{route('eh.view')}}">
+          <div>
+              <img src="assets/committe_icons/english.png" alt="English Heroes committee">
+              <p class="commmittee-name">
+                  English Heroes
+                  <ion-icon name="arrow-forward-outline"></ion-icon>
+              </p>
+          </div>
+      </a>
+      <a class="committee" href="{{route('ccc.view')}}">
+          <div>
+              <img src="assets/committe_icons/ccc.png" alt="CCC committee">
+              <p class="commmittee-name">
+                  CCC
+                  <ion-icon name="arrow-forward-outline"></ion-icon>
+              </p>
+          </div>
+      </a>
+      <a class="committee" href="{{route('web.view')}}">
+          <div>
+              <img src="assets/committe_icons/web.png" alt="Web dev. committee">
+              <p class="commmittee-name">
+                  Web
+                  <ion-icon name="arrow-forward-outline"></ion-icon>
+              </p>
+          </div>
+      </a>
+      <a class="committee" href="{{route('hr.view')}}">
+          <div>
+              <img src="assets/committe_icons/hr.png" alt="HR committee">
+              <p class="commmittee-name">
+                  HR
+                  <ion-icon name="arrow-forward-outline"></ion-icon>
+              </p>
+          </div>
+      </a>
+      <a class="committee" href="{{route('pr.view')}}">
+          <div>
+              <img src="assets/committe_icons/pr.png" alt="PR committee">
+              <p class="commmittee-name">
+                  PR
+                  <ion-icon name="arrow-forward-outline"></ion-icon>
+              </p>
+          </div>
+      </a>
+      <a class="committee" href="{{route('lr.view')}}">
+          <div>
+              <img src="assets/committe_icons/lr.png" alt="LR committee">
+              <p class="commmittee-name">
+                  LR
+                  <ion-icon name="arrow-forward-outline"></ion-icon>
+              </p>
+          </div>
+      </a>
+      <a class="committee" href="{{route('blender.view')}}">
+          <div>
+              <img src="assets/committe_icons/blender.png" alt="Blender committee">
+              <p class="commmittee-name">
+                  Blender
+                  <ion-icon name="arrow-forward-outline"></ion-icon>
+              </p>
+          </div>
+      </a>
+      <a class="committee" href="{{route('game.view')}}">
+          <div>
+              <img src="assets/committe_icons/game.png" alt="Game committee">
+              <p class="commmittee-name">
+                  Game
+                  <ion-icon name="arrow-forward-outline"></ion-icon>
+              </p>
+          </div>
+      </a>
+      <a class="committee" href="{{route('projects.view')}}">
+          <div>
+              <img src="assets/committe_icons/projects.png" alt="Projects committee">
+              <p class="commmittee-name">
+                  Project
+                  <ion-icon name="arrow-forward-outline"></ion-icon>
+              </p>
+          </div>
+      </a>
+  </div>
 </div>
 @endsection

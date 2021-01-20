@@ -32,7 +32,7 @@ class StoreStudentData extends FormRequest
             'studentCommitteeA'=>'required|regex:/^[\pL\s\-]+$/u',
             // 'studentCommitteeB'=>'required|regex:/^[\pL\s\-]+$/u',
             'studentDateA'=>'required',
-            'studentTimeA'=>'required',
+            // 'studentTimeA'=>'required',
             // 'studentDateB'=>'required',
             // 'studentTimeB'=>'required',
         ];

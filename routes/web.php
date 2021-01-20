@@ -15,7 +15,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/','App\Http\Controllers\eventController@getAllCommittees')->name('homePage');
 Route::post('/registration','App\Http\Controllers\eventController@store')->name('registration');
+
 //Route::get('/registration','App\Http\Controllers\eventController@registrationView')->name('registrationView');
+Route::get('/registration','App\Http\Controllers\eventController@registrationView')->name('registrationView');
 Route::get('/appointments','App\Http\Controllers\eventController@getAppointments')->name('appointmentsAjax');
 
 // Route::get('/admin',function (){
@@ -25,28 +27,51 @@ Route::get('/appointments','App\Http\Controllers\eventController@getAppointments
 
 Route::group(['prefix' => 'admin'], function () {
 
+
     Route::get('/EventMembers/{key?}','App\Http\Controllers\eventController@getAllMembers')->name('EventMembers');
     Route::get('/{id}','App\Http\Controllers\eventController@deleteMember')->name('deleteMember');
 
+
+
+    // Route::get('/EventMembers','App\Http\Controllers\eventController@getAllMembers')->name('EventMembers');
+    // Route::get('/{id}','App\Http\Controllers\eventController@deleteMember')->name('deleteMember');
 
     Route::get('/EventAppointment/{committee_id}','App\Http\Controllers\AppointmentsController@getAllAppoitments')->name('GetAll');
     Route::post('/EventAppointment/{committee_id}', 'App\Http\Controllers\AppointmentsController@insertAppoitment')->name('Insert');
     Route::get('/EventAppointment/{committee_id}/{id}', 'App\Http\Controllers\AppointmentsController@deleteAppointment')->name('Delete');
 });
-Route::get('/home/registration', 'App\Http\Controllers\AppointmentsController@registrationView')->name('registeration.meeting');
+
+// Route::get('/home/registration', 'App\Http\Controllers\AppointmentsController@registrationView')->name('registeration.meeting');
+// Route::get('/aboutUs', 'App\Http\Controllers\AppointmentsController@aboutUsView')->name('aboutUs.view');
+// Route::get('/home/art', 'App\Http\Controllers\AppointmentsController@artView')->name('art.view');
+// Route::get('/home/blender', 'App\Http\Controllers\AppointmentsController@blenderView')->name('blender.view');
+// Route::get('/home/ccc', 'App\Http\Controllers\AppointmentsController@cccView')->name('ccc.view');
+// Route::get('/home/eh', 'App\Http\Controllers\AppointmentsController@ehView')->name('eh.view');
+// Route::get('/home/game', 'App\Http\Controllers\AppointmentsController@gameView')->name('game.view');
+// Route::get('/home/hr', 'App\Http\Controllers\AppointmentsController@hrView')->name('hr.view');
+// Route::get('/home/linux', 'App\Http\Controllers\AppointmentsController@linuxView')->name('linux.view');
+// Route::get('/home/lr', 'App\Http\Controllers\AppointmentsController@lrView')->name('lr.view');
+// Route::get('/home/pr', 'App\Http\Controllers\AppointmentsController@prView')->name('pr.view');
+// Route::get('/home/projects', 'App\Http\Controllers\AppointmentsController@projectsView')->name('projects.view');
+// Route::get('/home/web', 'App\Http\Controllers\AppointmentsController@webView')->name('web.view');
+// Route::get('/home/welcome', 'App\Http\Controllers\AppointmentsController@welcomeView')->name('welcome.view');
+
+Route::get('/home/registeration', 'App\Http\Controllers\AppointmentsController@registerationView')->name('registeration.meeting');
 Route::get('/aboutUs', 'App\Http\Controllers\AppointmentsController@aboutUsView')->name('aboutUs.view');
-Route::get('/home/art', 'App\Http\Controllers\AppointmentsController@artView')->name('art.view');
-Route::get('/home/blender', 'App\Http\Controllers\AppointmentsController@blenderView')->name('blender.view');
-Route::get('/home/ccc', 'App\Http\Controllers\AppointmentsController@cccView')->name('ccc.view');
-Route::get('/home/eh', 'App\Http\Controllers\AppointmentsController@ehView')->name('eh.view');
-Route::get('/home/game', 'App\Http\Controllers\AppointmentsController@gameView')->name('game.view');
-Route::get('/home/hr', 'App\Http\Controllers\AppointmentsController@hrView')->name('hr.view');
-Route::get('/home/linux', 'App\Http\Controllers\AppointmentsController@linuxView')->name('linux.view');
-Route::get('/home/lr', 'App\Http\Controllers\AppointmentsController@lrView')->name('lr.view');
-Route::get('/home/pr', 'App\Http\Controllers\AppointmentsController@prView')->name('pr.view');
-Route::get('/home/projects', 'App\Http\Controllers\AppointmentsController@projectsView')->name('projects.view');
-Route::get('/home/web', 'App\Http\Controllers\AppointmentsController@webView')->name('web.view');
-Route::get('/home/welcome', 'App\Http\Controllers\AppointmentsController@welcomeView')->name('welcome.view');
+Route::get('/committees/art', 'App\Http\Controllers\AppointmentsController@artView')->name('art.view');
+Route::get('/committees/blender', 'App\Http\Controllers\AppointmentsController@blenderView')->name('blender.view');
+Route::get('/committees/ccc', 'App\Http\Controllers\AppointmentsController@cccView')->name('ccc.view');
+Route::get('/committees/eh', 'App\Http\Controllers\AppointmentsController@ehView')->name('eh.view');
+Route::get('/committees/game', 'App\Http\Controllers\AppointmentsController@gameView')->name('game.view');
+Route::get('/committees/hr', 'App\Http\Controllers\AppointmentsController@hrView')->name('hr.view');
+Route::get('/committees/linux', 'App\Http\Controllers\AppointmentsController@linuxView')->name('linux.view');
+Route::get('/committees/lr', 'App\Http\Controllers\AppointmentsController@lrView')->name('lr.view');
+Route::get('/committees/pr', 'App\Http\Controllers\AppointmentsController@prView')->name('pr.view');
+Route::get('/committees/projects', 'App\Http\Controllers\AppointmentsController@projectsView')->name('projects.view');
+Route::get('/committees/web', 'App\Http\Controllers\AppointmentsController@webView')->name('web.view');
+Route::get('/committees/welcome', 'App\Http\Controllers\AppointmentsController@welcomeView')->name('welcome.view');
+Route::get('/regestration-closed', 'App\Http\Controllers\AppointmentsController@closed')->name('reg-closed');
+
 
 Route::get('login', [App\Http\Controllers\Auth\LoginController::class, 'showLoginForm'])->name('login');
 Route::post('login', [App\Http\Controllers\Auth\LoginController::class, 'login']);

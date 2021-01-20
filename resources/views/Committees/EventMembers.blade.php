@@ -1,12 +1,16 @@
 @extends('layout.back')
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> main
 @section('content')
 <style>
     td{
         border-bottom: 1px solid #09c;
     }
 </style>
+<<<<<<< HEAD
 
 
 
@@ -29,6 +33,11 @@
     <div class="row">
         <div class="col-12">
             <table class="table table-striped table-hover" id='table'>
+=======
+    <div class="row">
+        <div class="col-12">
+            <table class="table table-striped table-hover">
+>>>>>>> main
                 <thead>
                   <tr>
                     <th scope="col">id</th>
@@ -91,5 +100,6 @@
 				
 			});
 </script>
+
 
 @endsection

@@ -13,6 +13,7 @@ class AppointmentsController extends Controller
             // dd($committee);
             return view('Committees.EventRegisteration',compact('committees'));
         }
+       
         public function  aboutUsView(){
             return view('Committees.aboutus');
         }
@@ -54,6 +55,11 @@ class AppointmentsController extends Controller
         public function  welcomeView(){
             return view('Committees.home');
         }
+
+        public function  closed(){
+            return view('Committees.regestration-closed');
+        }
+
  
     public function insertAppoitment(Request $request ,$committee_id)
     {

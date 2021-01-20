@@ -13,7 +13,6 @@ class eventController extends Controller
 {
     public function store(StoreStudentData $request)
     {
-        // dd( $request->all());
         $member=new Event();
         $Exist = Event::where('phone',$request->studentPhone)->first();
         if($Exist > '0')
@@ -94,8 +93,9 @@ class eventController extends Controller
             $member->dateCommittee_B=$studentDateB;
             $member->timeCommittee_B=$request->studentTimeB;
         }
+
         $data=$request->all();
-      
+    
         $status = $member->saveOrFail();
 
         if ($status) {
@@ -104,6 +104,7 @@ class eventController extends Controller
             return redirect()->back()->with(['fail'=>'Regestration Fail!']);
         }
     }
+
     public function getAllMembers($key=null)
     {
         $member=new Event();
@@ -114,7 +115,6 @@ class eventController extends Controller
         }else{
         $collection=$member->get();
         }
-        return view('Committees.EventMembers')->with('collection',$collection);
     }
     public function getAllCommittees(){
 
