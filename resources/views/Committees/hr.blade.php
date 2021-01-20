@@ -23,7 +23,7 @@
                 do an interview, have responsibility and be excellent decision makers.
             </p>
             <a data-aos="fade-up" data-aos-duration="1000" data-aos-delay="750" class="btn" id="hero-btn"
-                href="registeration-closed.html">
+                href="{{route('reg-closed')}}">
                 Register to HR committee
                 <ion-icon name="arrow-forward-outline"></ion-icon>
             </a>

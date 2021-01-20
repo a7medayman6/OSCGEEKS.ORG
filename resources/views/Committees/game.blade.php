@@ -26,12 +26,12 @@
                 games.
             </p>
             <a data-aos="fade-up" data-aos-duration="1000" data-aos-delay="750" class="btn" id="hero-btn"
-                href="registeration-closed.html">
+                href="{{route('reg-closed')}}">
                 Register to game committee
                 <ion-icon name="arrow-forward-outline"></ion-icon>
             </a>
         </div>
-        <img class="committee-illustration" src="assets/committe_illustrations/Game.svg">
+        <img class="committee-illustration" src="{{asset('assets/committe_illustrations/Game.svg')}}">
     </section>
 </div>
 @endsection

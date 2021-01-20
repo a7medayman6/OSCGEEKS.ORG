@@ -25,7 +25,7 @@
                 community more fluent in English
             </p>
             <a data-aos="fade-up" data-aos-duration="1000" data-aos-delay="750" class="btn" id="hero-btn"
-                href="registeration-closed.html">
+                href="{{route('reg-closed')}}">
                 Register to English committee
                 <ion-icon name="arrow-forward-outline"></ion-icon>
             </a>

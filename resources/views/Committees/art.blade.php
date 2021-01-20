@@ -23,7 +23,7 @@
 				<strong><a href="https://bit.ly/3mxije9" target="_blank">Inkscape</a></strong>.
 			</p>
 			<a data-aos="fade-up" data-aos-duration="1000" data-aos-delay="750" class="btn" id="hero-btn"
-				href="registeration-closed.html">
+				href="{{route('reg-closed')}}">
 				Register to art committee
 				<ion-icon name="arrow-forward-outline"></ion-icon>
 			</a>

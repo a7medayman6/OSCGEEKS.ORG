@@ -51,6 +51,9 @@ class AppointmentsController extends Controller
         public function  welcomeView(){
             return view('Committees.home');
         }
+        public function  closed(){
+            return view('Committees.regestration-closed');
+        }
  
     public function insertAppoitment(Request $request ,$committee_id)
     {

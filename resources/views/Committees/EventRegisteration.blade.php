@@ -66,6 +66,15 @@
 .p-4{
   font-size: 25px
 }
+.bootstrap-container-modify{
+  max-width: 95%;
+} 
+header .container{
+  max-width: 95%;
+}
+.logo:hover{
+  color: transparent;
+}
 </style>
 @endsection
 @section('content')

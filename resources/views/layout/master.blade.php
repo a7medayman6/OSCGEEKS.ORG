@@ -39,20 +39,20 @@
             <nav class="main-nav" id="main-nav">
                 <ul class="flex">
                     <li>
-                        <a class="nav-link active" href="{{route('homePage')}}">
+                        <a class="nav-link {{ (request()->routeIs('homePage')) ? 'active' : ' ' }}" href="{{route('homePage')}}">
                             <ion-icon class="left-icon" name="planet-outline"></ion-icon>
                             Home
                         </a>
                     </li>
                     <li>
-                        <button class="nav-link flex" id="btn-committees">
+                        <button class="nav-link flex " id="btn-committees">
                             <ion-icon class="left-icon" name="people-circle-outline"></ion-icon>
-                            Committes
+                            Committees
                             <ion-icon id="down-arrow" name="chevron-down-outline"></ion-icon>
                         </button>
                     </li>
                     <li>
-                        <a class="nav-link" href="{{route('aboutUs.view')}}">
+                        <a class="nav-link {{ (request()->routeIs('aboutUs.view')) ? 'active' : ' ' }}" href="{{route('aboutUs.view')}}">
                             <ion-icon class="left-icon" name="information-circle-outline"></ion-icon>
                             About
                         </a>
@@ -66,7 +66,7 @@
             <nav class="hamburger-nav" id="hamburger-nav">
                 <ul>
                     <li>
-                        <a class="nav-link active" href="{{route('homePage')}}">
+                        <a class="nav-link {{ (request()->routeIs('homePage')) ? 'active' : ' ' }}" href="{{route('homePage')}}">
                             <ion-icon class="left-icon" name="planet-outline"></ion-icon>
                             Home
                         </a>
@@ -74,12 +74,12 @@
                     <li>
                         <button class="nav-link flex" id="ham-btn-committees">
                             <ion-icon class="left-icon" name="people-circle-outline"></ion-icon>
-                            Committes
+                            Committees
                             <ion-icon id="ham-down-arrow" name="chevron-forward-outline"></ion-icon>
                         </button>
                     </li>
                     <li>
-                        <a class="nav-link" href="{{route('aboutUs.view')}}">
+                        <a class="nav-link {{ (request()->routeIs('aboutUs.view')) ? 'active' : ' ' }}" href="{{route('aboutUs.view')}}">
                             <ion-icon class="left-icon" name="information-circle-outline"></ion-icon>
                             About
                         </a>
@@ -198,7 +198,7 @@
 @yield('content')
 
 
-<div class="container">
+<div class="container bootstrap-container-modify">
   <section class="contact spacer">
       <img src="{{asset('assets/contact.svg')}}">
       <div class="form-container floating">
@@ -216,8 +216,8 @@
   </section>
 </div>
 </main>
-<footer>
-<div class="container">
+<footer> 
+<div class="container bootstrap-container-modify">
   <div class="credits">
       <a class="logo" href="index.html">
           <img src="{{asset('assets/logo.svg')}}" alt="OSC logo">
@@ -226,7 +226,7 @@
           <h2 id="long-name">Open Source Community</h2>
           <h2 id="initials">O.S.C</h2>
           <h4>FCIS Student Activity</h4>
-          <h5>Copyright OSC © 2021, All rights are reserved</h5>
+          <h5 style="font-size: 0.83em;">Copyright OSC © 2021, All rights are reserved</h5>
       </div>
   </div>
   <div class="social-media">

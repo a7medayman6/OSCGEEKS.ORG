@@ -37,7 +37,7 @@
 
   <div class="committees-container gallery js-flickity" data-flickity-options='{ "wrapAround": true }'
       id="committees-container">
-      <a class="committee" href="art.html">
+      <a class="committee" href="{{route('art.view')}}">
           <div>
               <img src="assets/committe_icons/art.png" alt="Art committee">
               <p class="commmittee-name">
@@ -46,7 +46,7 @@
               </p>
           </div>
       </a>
-      <a class="committee" href="linux.html">
+      <a class="committee" href="{{route('linux.view')}}">
           <div>
               <img src="assets/committe_icons/linux.png" alt="Linux committee">
               <p class="commmittee-name">
@@ -55,7 +55,7 @@
               </p>
           </div>
       </a>
-      <a class="committee" href="english.html">
+      <a class="committee" href="{{route('eh.view')}}">
           <div>
               <img src="assets/committe_icons/english.png" alt="English Heroes committee">
               <p class="commmittee-name">
@@ -64,7 +64,7 @@
               </p>
           </div>
       </a>
-      <a class="committee" href="ccc.html">
+      <a class="committee" href="{{route('ccc.view')}}">
           <div>
               <img src="assets/committe_icons/ccc.png" alt="CCC committee">
               <p class="commmittee-name">
@@ -73,16 +73,16 @@
               </p>
           </div>
       </a>
-      <a class="committee" href="web.html">
+      <a class="committee" href="{{route('web.view')}}">
           <div>
               <img src="assets/committe_icons/web.png" alt="Web dev. committee">
               <p class="commmittee-name">
-                  Web dev.
+                  Web
                   <ion-icon name="arrow-forward-outline"></ion-icon>
               </p>
           </div>
       </a>
-      <a class="committee" href="hr.html">
+      <a class="committee" href="{{route('hr.view')}}">
           <div>
               <img src="assets/committe_icons/hr.png" alt="HR committee">
               <p class="commmittee-name">
@@ -91,7 +91,7 @@
               </p>
           </div>
       </a>
-      <a class="committee" href="pr.html">
+      <a class="committee" href="{{route('pr.view')}}">
           <div>
               <img src="assets/committe_icons/pr.png" alt="PR committee">
               <p class="commmittee-name">
@@ -100,7 +100,7 @@
               </p>
           </div>
       </a>
-      <a class="committee" href="lr.html">
+      <a class="committee" href="{{route('lr.view')}}">
           <div>
               <img src="assets/committe_icons/lr.png" alt="LR committee">
               <p class="commmittee-name">
@@ -109,7 +109,7 @@
               </p>
           </div>
       </a>
-      <a class="committee" href="blender.html">
+      <a class="committee" href="{{route('blender.view')}}">
           <div>
               <img src="assets/committe_icons/blender.png" alt="Blender committee">
               <p class="commmittee-name">
@@ -118,7 +118,7 @@
               </p>
           </div>
       </a>
-      <a class="committee" href="game.html">
+      <a class="committee" href="{{route('game.view')}}">
           <div>
               <img src="assets/committe_icons/game.png" alt="Game committee">
               <p class="commmittee-name">
@@ -127,7 +127,7 @@
               </p>
           </div>
       </a>
-      <a class="committee" href="projects.html">
+      <a class="committee" href="{{route('projects.view')}}">
           <div>
               <img src="assets/committe_icons/projects.png" alt="Projects committee">
               <p class="commmittee-name">
