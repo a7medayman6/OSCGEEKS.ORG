@@ -55,7 +55,6 @@
   .mb-4{
       margin-top: 20px;
       font-size: 40px;
-      font-family: 'Sofia';
       font-weight: bold;
   }
   .des{
@@ -102,14 +101,14 @@ header .container{
                   <form action="{{route('registration')}}" method="POST" class="p-4 text-warning">
                     @csrf <div class="form-group">
                         <label for="name"><i ></i> Name *</label>
-                        <input type="text" placeholder="name"class="form-control" name="studentName" required>
+                        <input type="text" placeholder="name" name="studentName" required>
                         @error('studentName')
                   <h6 class="text-danger">{{ $message }}</h6>
                   @enderror
                     </div>
                     <div class="form-group">
                       <label for="email"><i ></i> Email *</label>
-                      <input type="email" class="form-control" placeholder=" ****@gmail.com" name="studentEmail"required>
+                      <input type="email"  placeholder=" ****@gmail.com" name="studentEmail"required>
                       @error('studentEmail')
                   <h6 class="text-danger">{{ $message }}</h6>
                   @enderror
@@ -132,7 +131,7 @@ header .container{
                     </div>
                     <div class="col-md-6">
                       <label > Year *</label>
-                       <select class="form-control"  name="studentYear" required>
+                       <select   name="studentYear" required>
                             <option selected="selected" hidden></option>
                             <option value="1" selected>1</option>
                             <option value="2">2</option>
@@ -148,7 +147,7 @@ header .container{
                     <div class="col-md-6">
                     
                         <label> Commitee A *</label>
-                         <select class="form-control" name="studentCommitteeA" id="studentCommitteeA" required>
+                         <select  name="studentCommitteeA" id="studentCommitteeA" required>
                           <option selected="selected" hidden></option>
                             @foreach ($committees as $committee)
                               <option value="{{$committee->name}}">{{$committee->name}}</option>
@@ -161,7 +160,7 @@ header .container{
                     <div class="col-md-6">
                     
                       <label> Commitee B</label>
-                       <select class="form-control" name="studentCommitteeB" id="studentCommitteeB" >
+                       <select  name="studentCommitteeB" id="studentCommitteeB" >
                         <option selected="selected" hidden></option>
                           @foreach ($committees as $committee)
                             <option value="{{$committee->name}}">{{$committee->name}}</option>
@@ -176,7 +175,7 @@ header .container{
                     <div class="col-md-12">
                     
                         <label> Date & Time *</label>
-                        <select class="form-control" name="studentDateA" id="studentDateA"required>
+                        <select  name="studentDateA" id="studentDateA" required>
                         </select>
                         @error('studentDateA')
                         <h6 class="text-danger">{{ $message }}</h6>
