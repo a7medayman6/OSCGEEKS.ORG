@@ -18,6 +18,9 @@
             <li class="nav-item ">
             <a class="nav-link" href="{{route('EventMembers')}}">eventMembers <span class="sr-only">(current)</span></a>
             </li>
+            <li class="nav-item ">
+            <a class="nav-link" href="{{route('workshop.registration.table')}}">workshop Members request <span class="sr-only">(current)</span></a>
+            </li>
             <li class="nav-item">
               <a class="nav-link" href="{{route('GetAll','1')}}">Art</a>
             </li>

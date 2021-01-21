@@ -15,6 +15,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/','App\Http\Controllers\eventController@getAllCommittees')->name('homePage');
 Route::post('/registration','App\Http\Controllers\eventController@store')->name('registration');
+
+//Route::get('/registration','App\Http\Controllers\eventController@registrationView')->name('registrationView');
 Route::get('/registration','App\Http\Controllers\eventController@registrationView')->name('registrationView');
 Route::get('/appointments','App\Http\Controllers\eventController@getAppointments')->name('appointmentsAjax');
 
@@ -24,7 +26,9 @@ Route::get('/appointments','App\Http\Controllers\eventController@getAppointments
 
 
 Route::group(['prefix' => 'admin'], function () {
-    Route::get('/EventMembers','App\Http\Controllers\eventController@getAllMembers')->name('EventMembers');
+
+
+    Route::get('/EventMembers/{key?}','App\Http\Controllers\eventController@getAllMembers')->name('EventMembers');
     Route::get('/{id}','App\Http\Controllers\eventController@deleteMember')->name('deleteMember');
     Route::get('/EventAppointment/{committee_id}','App\Http\Controllers\AppointmentsController@getAllAppoitments')->name('GetAll');
     Route::post('/EventAppointment/{committee_id}', 'App\Http\Controllers\AppointmentsController@insertAppoitment')->name('Insert');
@@ -45,6 +49,13 @@ Route::get('/committees/projects', 'App\Http\Controllers\AppointmentsController@
 Route::get('/committees/web', 'App\Http\Controllers\AppointmentsController@webView')->name('web.view');
 Route::get('/committees/welcome', 'App\Http\Controllers\AppointmentsController@welcomeView')->name('welcome.view');
 Route::get('/regestration-closed', 'App\Http\Controllers\AppointmentsController@closed')->name('reg-closed');
+//registrar form veiw
+Route::get('/workshop/registration/form','App\Http\Controllers\workshopController@workshop_view_registration')->name('workshop.registration.form');
+// admin-board table to registration data
+Route::get('/workshop/registration/show/table/{key?}','App\Http\Controllers\workshopController@workshop_view_table')->name('workshop.registration.table');
+//create registrar to work shop
+Route::post('/create/workshop/registration','App\Http\Controllers\workshopController@create_workshop_registration')->name('create.workshop.registration');
+
 
 Route::get('login', [App\Http\Controllers\Auth\LoginController::class, 'showLoginForm'])->name('login');
 Route::post('login', [App\Http\Controllers\Auth\LoginController::class, 'login']);

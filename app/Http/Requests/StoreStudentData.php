@@ -57,7 +57,7 @@ class StoreStudentData extends FormRequest
             // 'studentCommitteeB.required'=>'*A Committee A is required',
             // 'studentCommitteeB.regex'=>'*A Committee A must be text',
             'studentDateA.required'=>'*A Date is required',
-            // 'studentTimeA.required'=>'*A Time is required',
+            'studentTimeA.required'=>'*A Time is required',
             // 'studentDateB.required'=>'*A Date is required',
             // 'studentTimeB.required'=>'*A Time is required'
         ];

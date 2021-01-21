@@ -55,6 +55,7 @@
   .mb-4{
       margin-top: 20px;
       font-size: 40px;
+      font-family: 'Sofia';
       font-weight: bold;
   }
   .des{
@@ -103,14 +104,14 @@ header .container{
                         <label for="name"><i ></i> Name *</label>
                         <input type="text" placeholder="name"class="form-control" name="studentName" required>
                         @error('studentName')
-                  <div class="text-danger">{{ $message }}</div>
+                  <h6 class="text-danger">{{ $message }}</h6>
                   @enderror
                     </div>
                     <div class="form-group">
                       <label for="email"><i ></i> Email *</label>
                       <input type="email" class="form-control" placeholder=" ****@gmail.com" name="studentEmail"required>
                       @error('studentEmail')
-                  <div class="text-danger">{{ $message }}</div>
+                  <h6 class="text-danger">{{ $message }}</h6>
                   @enderror
                   </div>
 
@@ -118,7 +119,7 @@ header .container{
                         <label for="pwd"> Mobile Number *</label>
                         <input type="tel" name="studentPhone" class="form-control" title="الرجاء ادخل  رقم الهاتف" placeholder="01*********" pattern="[0-9]{11}" required>
                         @error('studentPhone')
-                    <div class="text-danger">{{ $message }}</div>
+                    <h6 class="text-danger">{{ $message }}</h6>
                     @enderror
                     </div>
                     <div class="row">
@@ -126,12 +127,12 @@ header .container{
                     <label >College *</label>
                     <input type="text" class="form-control" name="studentCollege" required>
                     @error('studentCollege')
-                    <div class="text-danger">{{ $message }}</div>
+                    <h6 class="text-danger">{{ $message }}</h6>
                     @enderror
                     </div>
                     <div class="col-md-6">
                       <label > Year *</label>
-                       <select name="studentYear" required>
+                       <select class="form-control"  name="studentYear" required>
                             <option selected="selected" hidden></option>
                             <option value="1" selected>1</option>
                             <option value="2">2</option>
@@ -139,7 +140,7 @@ header .container{
                             <option value="4">4</option>
                         </select>
                         @error('studentYear')
-                          <div class="text-danger">{{ $message }}</div>
+                          <h6 class="text-danger">{{ $message }}</h6>
                         @enderror
                     </div>
                     </div>
@@ -147,27 +148,27 @@ header .container{
                     <div class="col-md-6">
                     
                         <label> Commitee A *</label>
-                         <select name="studentCommitteeA" id="studentCommitteeA" required>
+                         <select class="form-control" name="studentCommitteeA" id="studentCommitteeA" required>
                           <option selected="selected" hidden></option>
                             @foreach ($committees as $committee)
                               <option value="{{$committee->name}}">{{$committee->name}}</option>
                             @endforeach
                           </select>
                           @error('studentCommitteeA')
-                          <div class="text-danger">{{ $message }}</div>
+                          <h6 class="text-danger">{{ $message }}</h6>
                           @enderror
                     </div>
                     <div class="col-md-6">
                     
                       <label> Commitee B</label>
-                       <select name="studentCommitteeB" id="studentCommitteeB" >
+                       <select class="form-control" name="studentCommitteeB" id="studentCommitteeB" >
                         <option selected="selected" hidden></option>
                           @foreach ($committees as $committee)
                             <option value="{{$committee->name}}">{{$committee->name}}</option>
                           @endforeach
                         </select>
                         @error('studentCommitteeA')
-                        <div class="text-danger">{{ $message }}</div>
+                        <h6 class="text-danger">{{ $message }}</h6>
                         @enderror
                   </div>
                     </div>
@@ -175,32 +176,27 @@ header .container{
                     <div class="col-md-12">
                     
                         <label> Date & Time *</label>
-                        <select name="studentDateA" id="studentDateA" required>
+                        <select class="form-control" name="studentDateA" id="studentDateA"required>
                         </select>
                         @error('studentDateA')
-                        <div class="text-danger">{{ $message }}</div>
+                        <h6 class="text-danger">{{ $message }}</h6>
                         @enderror
                     </div>
                       
                     </div>
-                    
-                    
-                    {{-- <div class="row">
+                     <!-- <div class="row">
                     <div class="col-md-12">
                     
                         <label> Interview Time *</label>
                         <select class="form-control" name="studentTimeA" id="studentTimeA"  required>
-
-
                         <label> Committee Date B</label>
                         <select class="form-control" name="studentDateB" id="studentDateB" >
                         </select>
                         @error('studentDateB')
-                        <div class="text-danger">{{ $message }}</div>
+                        <h6 class="text-danger">{{ $message }}</h6>
                         @enderror
                     </div>
-                   
-                    </div> --}}
+                    </div> -->
 
 
                     <!-- <div class="form-group">
@@ -208,8 +204,6 @@ header .container{
                       <input type="datetime-local" class="form-control" required>
                   </div>
                    -->
-                  
-                    
                     <button style="margin-top: 20px" type="submit" class="btn">Submit</button>
                   </form>
               </div>
@@ -219,7 +213,6 @@ header .container{
 @endsection
 
 @section('scripts')
-    
         <script src="http://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
@@ -246,7 +239,8 @@ $(document).ready(function () {
 
                 var cartonaDate='<option selected="selected" hidden></option>';
                 // var cartonaTime=`<option selected="selected" hidden></option>`;
-                if (response.length > 0)
+                 console.log(response.length);
+                 if (response.length > 0)
                 {
                     response.forEach(element => {
                         if(element.numberOfSeats > 0)
@@ -262,19 +256,19 @@ $(document).ready(function () {
                       }
                     }
                     if(counter == response.length){
-                      cartonaDate+=`<option value="waitting">waitting</option>`;
-                      // cartonaTime+=`<option value="waitting">waitting</option>`;
+                      cartonaDate+=`<option value="waitting" disabled selected>waitting</option>`;
+                      // cartonaTime+=`<option value="waitting" disabled selected>waitting</option>`;
                       
                     }
-
+                   
 
                     $("#studentDateA").html(cartonaDate) ;
                     // $("#studentTimeA").html(cartonaTime) ;
                 }
                 else
                 {
-                    cartonaDate+=`<option value="waitting">waitting</option>`;
-                    // cartonaTime+=`<option value="waitting">waitting</option>`;
+                    cartonaDate+=`<option value="waitting" disabled >waitting</option>`;
+                    // cartonaTime+=`<option value="waitting" disabled selected>waitting</option>`;
                     $("#studentDateA").html(cartonaDate) ;
                     // $("#studentTimeA").html(cartonaTime) ;
                 }
@@ -323,8 +317,8 @@ $(document).ready(function () {
                     }
                   }
                   if(counter == response.length){
-                    cartonaDate+=`<option value="waitting">waitting</option>`;
-                    cartonaTime+=`<option value="waitting">waitting</option>`;
+                    cartonaDate+=`<option value="waitting" disabled selected>waitting</option>`;
+                    cartonaTime+=`<option value="waitting" disabled selected>waitting</option>`;
 
                   }
 
@@ -334,8 +328,8 @@ $(document).ready(function () {
               }
               else
               {
-                  cartonaDate+=`<option value="waitting">waitting</option>`;
-                  cartonaTime+=`<option value="waitting">waitting</option>`;
+                  cartonaDate+=`<option value="waitting" disabled selected>waitting</option>`;
+                  cartonaTime+=`<option value="waitting" disabled selected>waitting</option>`;
                   $("#studentDateB").html(cartonaDate) ;
                   $("#studentTimeB").html(cartonaTime) ;
               }

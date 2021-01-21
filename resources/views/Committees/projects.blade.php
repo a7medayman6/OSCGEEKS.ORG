@@ -5,6 +5,7 @@
 @section('cssFile')
 <link rel="stylesheet" href="{{asset('css/queries/committiee.css')}}" />
 <link rel="stylesheet" href="{{asset('css/committee.css')}}" />
+<link rel="stylesheet" href="{{asset('css/committee.css')}}" />
 @endsection
 @section('content')
 <div class="container">

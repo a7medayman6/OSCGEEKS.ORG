@@ -14,7 +14,7 @@ class AddCommitteeBToEventsTable extends Migration
     public function up()
     {
         Schema::table('events', function (Blueprint $table) {
-            $table->string('committee_B')->nullable();
+            // $table->string('committee_B')->nullable();
         });
     }
 

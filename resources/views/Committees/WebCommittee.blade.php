@@ -7,14 +7,14 @@
         <div class="row py-2">
             <div class="offset-4 col-4">
                 <label for="">Date</label>
-                <input type="text" name="Date" class="form-control">
+                 <input type="date" name="Date" class="form-control">
             </div>
 
         </div>
         <div class="row py-2">
             <div class=" offset-4 col-4">
                 <label for="">Time</label>
-                <input type="text" name="Time" class="form-control">
+                <input type="time" name="Time" class="form-control">
             </div>
         </div>
         <div class="row py-2">

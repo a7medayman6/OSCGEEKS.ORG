@@ -50,28 +50,28 @@
                   <label >Name</label>
                   <input type="text" class="form-control" name="studentName" required>
                   @error('studentName')
-                  <div class="text-danger">{{ $message }}</div>
+                  <h6 class="text-danger">{{ $message }}</h6>
                   @enderror
                 </div>
                 <div class="form-group">
                   <label >Email</label>
                   <input type="email" class="form-control" name="studentEmail" required>
                   @error('studentEmail')
-                  <div class="text-danger">{{ $message }}</div>
+                  <h6 class="text-danger">{{ $message }}</h6>
                   @enderror
                 </div>
                 <div class="form-group ">
                     <label >Phone</label>
                     <input type="number" class="form-control" name="studentPhone" required>
                     @error('studentPhone')
-                    <div class="text-danger">{{ $message }}</div>
+                    <h6 class="text-danger">{{ $message }}</h6>
                     @enderror
                 </div>
                 <div class="form-group ">
                     <label >College</label>
                     <input type="text" class="form-control" name="studentCollege" required>
                     @error('studentCollege')
-                    <div class="text-danger">{{ $message }}</div>
+                    <h6 class="text-danger">{{ $message }}</h6>
                     @enderror
                 </div>
                 <div class="form-group ">
@@ -84,7 +84,7 @@
                         <option value="4">4</option>
                     </select>
                     @error('studentYear')
-                    <div class="text-danger">{{ $message }}</div>
+                    <h6 class="text-danger">{{ $message }}</h6>
                     @enderror
                 </div>
                 <div class="form-group">
@@ -96,7 +96,7 @@
                         @endforeach
                     </select>
                     @error('studentCommitteeA')
-                    <div class="text-danger">{{ $message }}</div>
+                    <h6 class="text-danger">{{ $message }}</h6>
                     @enderror
                 </div>
                 <div class="form-group w-50 ">
@@ -106,7 +106,7 @@
 
                     </select>
                     @error('studentDate')
-                    <div class="text-danger">{{ $message }}</div>
+                    <h6 class="text-danger">{{ $message }}</h6>
                     @enderror
                 </div>
                 <div class="form-group w-50 ">
@@ -116,7 +116,7 @@
 
                     </select>
                     @error('studentTime')
-                    <div class="text-danger">{{ $message }}</div>
+                    <h6 class="text-danger">{{ $message }}</h6>
                     @enderror
                 </div>
                 <div class="form-group">
@@ -128,7 +128,7 @@
                         @endforeach
                     </select>
                     @error('studentCommitteeB')
-                    <div class="text-danger">{{ $message }}</div>
+                    <h6 class="text-danger">{{ $message }}</h6>
                     @enderror
                 </div>
                 <div class="form-group w-50 ">
@@ -137,7 +137,7 @@
 
                     </select>
                     @error('studentDate')
-                    <div class="text-danger">{{ $message }}</div>
+                    <h6 class="text-danger">{{ $message }}</h6>
                     @enderror
                 </div>
                 <div class="form-group w-50 ">
@@ -145,7 +145,7 @@
                     <select class="form-control" name="studentTimeB" id="studentTimeB" required>
                     </select>
                     @error('studentTime')
-                    <div class="text-danger">{{ $message }}</div>
+                    <h6 class="text-danger">{{ $message }}</h6>
                     @enderror
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
@@ -192,8 +192,8 @@
                             }
                             else
                             {
-                                cartonaDate+=`<option value="waitting">waitting</option>`;
-                                cartonaTime+=`<option value="waitting">waitting</option>`;
+                                cartonaDate+=`<option value="waitting" disabled selected>waitting</option>`;
+                                cartonaTime+=`<option value="waitting" disabled selected>waitting</option>`;
                                 $("#studentDateA").html(cartonaDate) ;
                                 $("#studentTimeA").html(cartonaTime) ;
                             }
@@ -243,8 +243,8 @@
                             }
                             else
                             {
-                                cartonaDate+=`<option value="waitting">waitting</option>`;
-                                cartonaTime+=`<option value="waitting">waitting</option>`;
+                                cartonaDate+=`<option value="waitting" disabled selected>waitting</option>`;
+                                cartonaTime+=`<option value="waitting" disabled selected>waitting</option>`;
                                 $("#studentDateB").html(cartonaDate) ;
                                 $("#studentTimeB").html(cartonaTime) ;
                             }

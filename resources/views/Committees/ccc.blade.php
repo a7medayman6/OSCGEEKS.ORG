@@ -1,6 +1,7 @@
 @extends('layout.master')
 @section('title')
     Open Source Community | CCC Commitee
+
 @endsection
 @section('cssFile')
 <link rel="stylesheet" href="{{asset('css/queries/committiee.css')}}" />
@@ -32,3 +33,4 @@
   </section>
 </div>
 @endsection
+
