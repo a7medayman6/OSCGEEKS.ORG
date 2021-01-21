@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Committees;
 use App\Models\workshop;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\automaticMail;
 
 class workshopController extends Controller
 {
@@ -44,7 +46,8 @@ class workshopController extends Controller
                 return redirect()->back()->withErrors($validition->errors()->messages());
             }
             workshop::store($request);
-            return redirect()->back()->withSuccess("Your registration is create successfully");
+            Mail::to($request['email'])->send(new automaticMail($request));
+            return redirect()->back()->withSuccess("Your registration is done successfully");
             
          }
 

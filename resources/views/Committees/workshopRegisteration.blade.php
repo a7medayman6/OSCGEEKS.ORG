@@ -1,6 +1,6 @@
 @extends('layout.master')
 @section('title')
-    Open Source Community | Event
+    Open Source Community | Workshops
     @endsection
     @section('cssFile')
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -55,7 +55,6 @@
   .mb-4{
       margin-top: 20px;
       font-size: 40px;
-      font-family: 'Sofia';
       font-weight: bold;
   }
   .des{
@@ -103,14 +102,14 @@ header .container{
                   <form action="{{route('create.workshop.registration')}}" method="POST" class="p-4 text-warning">
                     @csrf <div class="form-group">
                         <label for="name"><i ></i> Name *</label>
-                        <input type="text" placeholder="name"class="form-control" name="name" required>
+                        <input type="text" placeholder="name" name="name" required>
                         @error('name')
                   <div class="text-danger display-9">{{ $message }}</div>
                   @enderror
                     </div>
                     <div class="form-group">
                       <label for="email"><i ></i> Email *</label>
-                      <input type="email" class="form-control" placeholder=" ****@gmail.com" name="email"required>
+                      <input type="email"  placeholder=" ****@gmail.com" name="email"required>
                       @error('email')
                   <h6 class="text-danger">{{ $message }}</h6>
                   @enderror
@@ -118,7 +117,7 @@ header .container{
 
                     <div class="form-group">
                         <label for="pwd"> Mobile Number *</label>
-                        <input type="tel" name="studentPhone" class="form-control" title="الرجاء ادخل  رقم الهاتف" placeholder="01*********" pattern="[0-9]{11}" required>
+                        <input type="tel" name="studentPhone"  title="الرجاء ادخل  رقم الهاتف" placeholder="01*********" pattern="[0-9]{11}" required>
                         @error('studentPhone')
                     <h6 class="text-danger">{{ $message }}</h6>
                     @enderror
@@ -126,14 +125,14 @@ header .container{
                     <div class="row">
                     <div class="col-md-6">
                     <label >College *</label>
-                    <input type="text" class="form-control" name="studentCollege" required>
+                    <input type="text"  name="studentCollege" required>
                     @error('studentCollege')
                     <h6 class="text-danger">{{ $message }}</h6>
                     @enderror
                     </div>
                     <div class="col-md-6">
                       <label > Year *</label>
-                       <select class="form-control"  name="studentYear" required>
+                       <select name="studentYear" required>
                             <option selected="selected" hidden></option>
                             <option value="1" selected>1</option>
                             <option value="2">2</option>
@@ -148,8 +147,8 @@ header .container{
                     <div class="row">
                     <div class="col-md-12 ">
                     
-                        <label> workshop Commitee</label>
-                         <select class="form-control" name="workshop_name" id="workshop_name" required>
+                        <label> Workshop Commitee</label>
+                         <select name="workshop_name" id="workshop_name" required>
                           <option selected="selected" hidden></option>
                               <option value="Web">Web</option>
                               <option value="Blender">Blender</option>
@@ -163,7 +162,7 @@ header .container{
                     <div class="col-md-12">
                     
                         <label> Date & Time *</label>
-                        <select class="form-control" name="studentDateA" id="studentDateA"required>
+                        <select name="studentDateA" id="studentDateA"required>
                         </select>
                         @error('studentDateA')
                         <h6 class="text-danger">{{ $message }}</h6>

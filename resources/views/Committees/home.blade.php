@@ -19,7 +19,7 @@
               Challenges.
               Good enough for you? Register now</p>
           <a data-aos="fade-up" data-aos-duration="750" data-aos-delay="500" class="btn" id="hero-btn"
-              href="registeration-closed.html">
+              href="{{route('workshop.registration.form')}}">
               Register now
               <ion-icon name="arrow-forward-outline"></ion-icon>
           </a>
