@@ -64,6 +64,7 @@ class AppointmentsController extends Controller
     public function insertAppoitment(Request $request ,$committee_id)
     {
         $appointment = new Appointments();
+        // dd($request->all());
         $appointment->date = $request->Date;
         $appointment->time = $request->Time;
         $appointment->numberOfSeats = $request->NumberOfAva;

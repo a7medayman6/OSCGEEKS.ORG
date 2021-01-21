@@ -8,8 +8,10 @@ use Illuminate\Http\Request;
 
 class workshop extends Model
 {
-   public static function create($request){
-
+    protected $fillable = ['name','email','phone','college','studentYear','workshop'];
+    
+   public static function store($request){
+// dd($request->all());
     self::create([
         'name' => $request->name,
         'email' => $request->email,
@@ -20,4 +22,7 @@ class workshop extends Model
         "created_at" => date("Y-m-d h:i:sa")
     ]);
    }
+//    public static function destroy(workshop $persone){
+//     $persone->delete($persone->id);
+//    }
 }

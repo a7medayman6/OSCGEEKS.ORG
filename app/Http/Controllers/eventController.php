@@ -15,10 +15,10 @@ class eventController extends Controller
     {
         $member=new Event();
         $Exist = Event::where('phone',$request->studentPhone)->first();
-        if($Exist > '0')
-        {
-            return redirect()->back()->with(['fail'=>'Member Already Exist!']);
-        }
+        // if($Exist > '0')
+        // {
+        //     return redirect()->back()->with(['fail'=>'Member Already Exist!']);
+        // }
 
         if($request->studentCommitteeA == $request->studentCommitteeB)
         {
@@ -115,7 +115,9 @@ class eventController extends Controller
         }else{
         $collection=$member->get();
         }
+        return view('Committees.EventMembers')->with('collection',$collection);
     }
+  
     public function getAllCommittees(){
 
         $committees = new Committees();

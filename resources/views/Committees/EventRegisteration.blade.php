@@ -104,14 +104,14 @@ header .container{
                         <label for="name"><i ></i> Name *</label>
                         <input type="text" placeholder="name"class="form-control" name="studentName" required>
                         @error('studentName')
-                  <div class="text-danger">{{ $message }}</div>
+                  <h6 class="text-danger">{{ $message }}</h6>
                   @enderror
                     </div>
                     <div class="form-group">
                       <label for="email"><i ></i> Email *</label>
                       <input type="email" class="form-control" placeholder=" ****@gmail.com" name="studentEmail"required>
                       @error('studentEmail')
-                  <div class="text-danger">{{ $message }}</div>
+                  <h6 class="text-danger">{{ $message }}</h6>
                   @enderror
                   </div>
 
@@ -119,7 +119,7 @@ header .container{
                         <label for="pwd"> Mobile Number *</label>
                         <input type="tel" name="studentPhone" class="form-control" title="الرجاء ادخل  رقم الهاتف" placeholder="01*********" pattern="[0-9]{11}" required>
                         @error('studentPhone')
-                    <div class="text-danger">{{ $message }}</div>
+                    <h6 class="text-danger">{{ $message }}</h6>
                     @enderror
                     </div>
                     <div class="row">
@@ -127,7 +127,7 @@ header .container{
                     <label >College *</label>
                     <input type="text" class="form-control" name="studentCollege" required>
                     @error('studentCollege')
-                    <div class="text-danger">{{ $message }}</div>
+                    <h6 class="text-danger">{{ $message }}</h6>
                     @enderror
                     </div>
                     <div class="col-md-6">
@@ -140,7 +140,7 @@ header .container{
                             <option value="4">4</option>
                         </select>
                         @error('studentYear')
-                          <div class="text-danger">{{ $message }}</div>
+                          <h6 class="text-danger">{{ $message }}</h6>
                         @enderror
                     </div>
                     </div>
@@ -155,7 +155,7 @@ header .container{
                             @endforeach
                           </select>
                           @error('studentCommitteeA')
-                          <div class="text-danger">{{ $message }}</div>
+                          <h6 class="text-danger">{{ $message }}</h6>
                           @enderror
                     </div>
                     <div class="col-md-6">
@@ -168,7 +168,7 @@ header .container{
                           @endforeach
                         </select>
                         @error('studentCommitteeA')
-                        <div class="text-danger">{{ $message }}</div>
+                        <h6 class="text-danger">{{ $message }}</h6>
                         @enderror
                   </div>
                     </div>
@@ -179,12 +179,12 @@ header .container{
                         <select class="form-control" name="studentDateA" id="studentDateA"required>
                         </select>
                         @error('studentDateA')
-                        <div class="text-danger">{{ $message }}</div>
+                        <h6 class="text-danger">{{ $message }}</h6>
                         @enderror
                     </div>
                       
                     </div>
-                    {{-- <div class="row">
+                     <!-- <div class="row">
                     <div class="col-md-12">
                     
                         <label> Interview Time *</label>
@@ -193,10 +193,10 @@ header .container{
                         <select class="form-control" name="studentDateB" id="studentDateB" >
                         </select>
                         @error('studentDateB')
-                        <div class="text-danger">{{ $message }}</div>
+                        <h6 class="text-danger">{{ $message }}</h6>
                         @enderror
                     </div>
-                    </div> --}}
+                    </div> -->
 
 
                     <!-- <div class="form-group">
@@ -239,7 +239,8 @@ $(document).ready(function () {
 
                 var cartonaDate='<option selected="selected" hidden></option>';
                 // var cartonaTime=`<option selected="selected" hidden></option>`;
-                if (response.length > 0)
+                 console.log(response.length);
+                 if (response.length > 0)
                 {
                     response.forEach(element => {
                         if(element.numberOfSeats > 0)
@@ -255,19 +256,19 @@ $(document).ready(function () {
                       }
                     }
                     if(counter == response.length){
-                      cartonaDate+=`<option value="waitting">waitting</option>`;
-                      // cartonaTime+=`<option value="waitting">waitting</option>`;
+                      cartonaDate+=`<option value="waitting" disabled selected>waitting</option>`;
+                      // cartonaTime+=`<option value="waitting" disabled selected>waitting</option>`;
                       
                     }
-
+                   
 
                     $("#studentDateA").html(cartonaDate) ;
                     // $("#studentTimeA").html(cartonaTime) ;
                 }
                 else
                 {
-                    cartonaDate+=`<option value="waitting">waitting</option>`;
-                    // cartonaTime+=`<option value="waitting">waitting</option>`;
+                    cartonaDate+=`<option value="waitting" disabled >waitting</option>`;
+                    // cartonaTime+=`<option value="waitting" disabled selected>waitting</option>`;
                     $("#studentDateA").html(cartonaDate) ;
                     // $("#studentTimeA").html(cartonaTime) ;
                 }
@@ -316,8 +317,8 @@ $(document).ready(function () {
                     }
                   }
                   if(counter == response.length){
-                    cartonaDate+=`<option value="waitting">waitting</option>`;
-                    cartonaTime+=`<option value="waitting">waitting</option>`;
+                    cartonaDate+=`<option value="waitting" disabled selected>waitting</option>`;
+                    cartonaTime+=`<option value="waitting" disabled selected>waitting</option>`;
 
                   }
 
@@ -327,8 +328,8 @@ $(document).ready(function () {
               }
               else
               {
-                  cartonaDate+=`<option value="waitting">waitting</option>`;
-                  cartonaTime+=`<option value="waitting">waitting</option>`;
+                  cartonaDate+=`<option value="waitting" disabled selected>waitting</option>`;
+                  cartonaTime+=`<option value="waitting" disabled selected>waitting</option>`;
                   $("#studentDateB").html(cartonaDate) ;
                   $("#studentTimeB").html(cartonaTime) ;
               }

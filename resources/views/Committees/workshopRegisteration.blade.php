@@ -1,10 +1,9 @@
 @extends('layout.master')
-
 @section('title')
     Open Source Community | Event
     @endsection
     @section('cssFile')
-    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <style>
    /* body{
    background-image: url("img/Registertion_Page.png");
@@ -68,6 +67,15 @@
 .p-4{
   font-size: 25px
 }
+.bootstrap-container-modify{
+  max-width: 95%;
+} 
+header .container{
+  max-width: 95%;
+}
+.logo:hover{
+  color: transparent;
+}
 </style>
 @endsection
 @section('content')
@@ -85,33 +93,34 @@
                   {{Session::get('success')}}
               </div>
               @endif
-              @if (Session::has('fail'))
+             
+              @if (Session::get('errors'))
                   <div class="alert alert-danger" role="alert">
-                      {{Session::get('fail')}}
+                      {{Session::get('errors')}}
                   </div>
               @endif
 
-                  <form action="{{route('registration')}}" method="POST" class="p-4 text-warning">
+                  <form action="{{route('create.workshop.registration')}}" method="POST" class="p-4 text-warning">
                     @csrf <div class="form-group">
                         <label for="name"><i ></i> Name *</label>
-                        <input type="text" placeholder="name"class="form-control" name="studentName" required>
-                        @error('studentName')
-                  <div class="text-danger">{{ $message }}</div>
+                        <input type="text" placeholder="name"class="form-control" name="name" required>
+                        @error('name')
+                  <div class="text-danger display-9">{{ $message }}</div>
                   @enderror
                     </div>
                     <div class="form-group">
                       <label for="email"><i ></i> Email *</label>
-                      <input type="email" class="form-control" placeholder=" ****@gmail.com" name="studentEmail"required>
-                      @error('studentEmail')
-                  <div class="text-danger">{{ $message }}</div>
+                      <input type="email" class="form-control" placeholder=" ****@gmail.com" name="email"required>
+                      @error('email')
+                  <h6 class="text-danger">{{ $message }}</h6>
                   @enderror
                   </div>
 
                     <div class="form-group">
-                        <label > Mobile Number *</label>
+                        <label for="pwd"> Mobile Number *</label>
                         <input type="tel" name="studentPhone" class="form-control" title="الرجاء ادخل  رقم الهاتف" placeholder="01*********" pattern="[0-9]{11}" required>
                         @error('studentPhone')
-                    <div class="text-danger">{{ $message }}</div>
+                    <h6 class="text-danger">{{ $message }}</h6>
                     @enderror
                     </div>
                     <div class="row">
@@ -119,7 +128,7 @@
                     <label >College *</label>
                     <input type="text" class="form-control" name="studentCollege" required>
                     @error('studentCollege')
-                    <div class="text-danger">{{ $message }}</div>
+                    <h6 class="text-danger">{{ $message }}</h6>
                     @enderror
                     </div>
                     <div class="col-md-6">
@@ -132,84 +141,45 @@
                             <option value="4">4</option>
                         </select>
                         @error('studentYear')
-                          <div class="text-danger">{{ $message }}</div>
+                          <h6 class="text-danger">{{ $message }}</h6>
                         @enderror
                     </div>
                     </div>
                     <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-12 ">
                     
-                        <label> Commitee A *</label>
-                         <select class="form-control" name="studentCommitteeA" id="studentCommitteeA" required>
+                        <label> workshop Commitee</label>
+                         <select class="form-control" name="workshop_name" id="workshop_name" required>
                           <option selected="selected" hidden></option>
-                            @foreach ($committees as $committee)
-                              <option value="{{$committee->name}}">{{$committee->name}}</option>
-                            @endforeach
+                              <option value="Web">Web</option>
+                              <option value="Blender">Blender</option>
+                              <option value="Linux">Linux</option>
                           </select>
-                          @error('studentCommitteeA')
-                          <div class="text-danger">{{ $message }}</div>
+                          @error('workshop_name')
+                          <h6 class="text-danger">{{ $message }}</h6>
                           @enderror
                     </div>
-                    <div class="col-md-6">
-                    
-                      <label> Commitee B</label>
-                       <select class="form-control" name="studentCommitteeB" id="studentCommitteeB" >
-                        <option selected="selected" hidden></option>
-                          @foreach ($committees as $committee)
-                            <option value="{{$committee->name}}">{{$committee->name}}</option>
-                          @endforeach
-                        </select>
-                        @error('studentCommitteeA')
-                        <div class="text-danger">{{ $message }}</div>
-                        @enderror
-                  </div>
-                    </div>
-                    <div class="row">
+                  
                     <div class="col-md-12">
                     
-                        <!-- <label> Date & Time *</label>
-                        <select class="form-control" name="studentDateA" id="studentDateA" required>
-                        </select> -->
+                        <label> Date & Time *</label>
+                        <select class="form-control" name="studentDateA" id="studentDateA"required>
+                        </select>
                         @error('studentDateA')
-                        <div class="text-danger">{{ $message }}</div>
+                        <h6 class="text-danger">{{ $message }}</h6>
                         @enderror
                     </div>
                       
                     </div>
-                    
-                    
-                     <!-- <div class="row">
-                    <div class="col-md-12">
-                    
-                        <label> Interview Time *</label>
-                        <select class="form-control" name="studentTimeA" id="studentTimeA"  >
-
-
-                        <label> Committee Date B</label>
-                        <select class="form-control" name="studentDateB" id="studentDateB" >
-                        </select>
-                        @error('studentDateB')
-                        <div class="text-danger">{{ $message }}</div>
-                        @enderror
-                    </div>
-                   
-                    </div> -->
-
-
-                    <!-- <div class="form-group">
-                      <label for="email"><i></i> Interview time</label>
-                      <input type="datetime-local" class="form-control" required>
-                  </div>
-                   -->
-                  
-                    
-                    <button type="submit" class="btn btn-warning mb-3 mt-3  form-control">Submit</button>
+                    <button style="margin-top: 20px" type="submit" class="btn">Submit</button>
                   </form>
               </div>
             </div>
         </div>
     </div>
+@endsection
 
+@section('scripts')
         <script src="http://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
@@ -220,7 +190,7 @@
 $(document).ready(function () {
 
 
-    document.getElementById("studentCommitteeA").onchange=function()
+    document.getElementById("workshop_name").onchange=function()
     {
         var index = this.selectedIndex;
         $.ajax({
@@ -252,8 +222,8 @@ $(document).ready(function () {
                       }
                     }
                     if(counter == response.length){
-                      cartonaDate+=`<option value="waitting">waitting</option>`;
-                      // cartonaTime+=`<option value="waitting">waitting</option>`;
+                      cartonaDate+=`<option value="waitting" disabled selected>waitting</option>`;
+                      // cartonaTime+=`<option value="waitting" disabled selected>waitting</option>`;
                       
                     }
 
@@ -263,8 +233,8 @@ $(document).ready(function () {
                 }
                 else
                 {
-                    cartonaDate+=`<option value="waitting">waitting</option>`;
-                    // cartonaTime+=`<option value="waitting">waitting</option>`;
+                    cartonaDate+=`<option value="waitting" disabled selected>waitting</option>`;
+                    // cartonaTime+=`<option value="waitting" disabled selected>waitting</option>`;
                     $("#studentDateA").html(cartonaDate) ;
                     // $("#studentTimeA").html(cartonaTime) ;
                 }
@@ -278,65 +248,7 @@ $(document).ready(function () {
 
 });
 
-$(document).ready(function () {
-
-
-  document.getElementById("studentCommitteeB").onchange=function()
-  {
-      var index = this.selectedIndex;
-      $.ajax({
-          type: "get",
-          url: "{{route('appointmentsAjax')}}",
-          data:{
-              '_token':"{{csrf_token()}}",
-              'name':index,
-          },
-          success: function (response) {
-
-              // console.log(response);
-
-              var cartonaDate='<option selected="selected" hidden></option>';
-              var cartonaTime=`<option selected="selected" hidden></option>`;
-              if (response.length > 0)
-              {
-                  response.forEach(element => {
-                      if(element.numberOfSeats > 0)
-                      {
-                          cartonaDate+=`<option value="${element.date+'#'+element.id}">${element.date}</option>`;
-                          cartonaTime+=`<option value="${element.time}">${element.time}</option>`;
-                      }
-                  });
-                  let counter = 0;
-                  for(let i = 0; i < response.length; i++){
-                    if(response[i].numberOfSeats <= 0){
-                      counter++;
-                    }
-                  }
-                  if(counter == response.length){
-                    cartonaDate+=`<option value="waitting">waitting</option>`;
-                    cartonaTime+=`<option value="waitting">waitting</option>`;
-
-                  }
-
-
-                  $("#studentDateB").html(cartonaDate) ;
-                  $("#studentTimeB").html(cartonaTime) ;
-              }
-              else
-              {
-                  cartonaDate+=`<option value="waitting">waitting</option>`;
-                  cartonaTime+=`<option value="waitting">waitting</option>`;
-                  $("#studentDateB").html(cartonaDate) ;
-                  $("#studentTimeB").html(cartonaTime) ;
-              }
-
-          },
-          error:function(reject){
-              console.log(reject);
-          }
-      });
-  };
-
-});
-
 </script>
+
+@endsection
+  
