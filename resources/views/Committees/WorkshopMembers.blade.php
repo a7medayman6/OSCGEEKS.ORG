@@ -43,7 +43,6 @@
                             <td>{{$member->college}}</td>
                             <td>{{$member->studentYear}}</td>
                             <td>{{$member->workshop}}</td>
-                            <td>{{$memver->}}</td>
                         </tr>
                     @endforeach
                 </tbody>
