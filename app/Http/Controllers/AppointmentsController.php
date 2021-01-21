@@ -4,12 +4,16 @@ namespace App\Http\Controllers;
 
 use App\Models\Appointments;
 use Illuminate\Http\Request;
+use App\Models\Committees;
 use Illuminate\Support\Facades\DB;
 class AppointmentsController extends Controller
 {
-        public function  registerationView(){
-            return view('Committees.EventRegisteration');
+        public function  registrationView(){
+            $committees = Committees::get();
+            // dd($committee);
+            return view('Committees.EventRegisteration',compact('committees'));
         }
+       
         public function  aboutUsView(){
             return view('Committees.aboutus');
         }
@@ -51,13 +55,16 @@ class AppointmentsController extends Controller
         public function  welcomeView(){
             return view('Committees.home');
         }
+
         public function  closed(){
             return view('Committees.regestration-closed');
         }
+
  
     public function insertAppoitment(Request $request ,$committee_id)
     {
         $appointment = new Appointments();
+        // dd($request->all());
         $appointment->date = $request->Date;
         $appointment->time = $request->Time;
         $appointment->numberOfSeats = $request->NumberOfAva;

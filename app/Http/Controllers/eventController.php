@@ -15,10 +15,10 @@ class eventController extends Controller
     {
         $member=new Event();
         $Exist = Event::where('phone',$request->studentPhone)->first();
-        if($Exist > '0')
-        {
-            return redirect()->back()->with(['fail'=>'Member Already Exist!']);
-        }
+        // if($Exist > '0')
+        // {
+        //     return redirect()->back()->with(['fail'=>'Member Already Exist!']);
+        // }
 
         if($request->studentCommitteeA == $request->studentCommitteeB)
         {
@@ -94,6 +94,8 @@ class eventController extends Controller
             $member->timeCommittee_B=$request->studentTimeB;
         }
 
+        $data=$request->all();
+    
         $status = $member->saveOrFail();
 
         if ($status) {
@@ -102,17 +104,24 @@ class eventController extends Controller
             return redirect()->back()->with(['fail'=>'Regestration Fail!']);
         }
     }
-    public function getAllMembers()
+
+    public function getAllMembers($key=null)
     {
         $member=new Event();
+        
+        if($key!=null){
+            $collection=$member->where('committee_A','like',$key)->orWhere('committee_B','like',$key)->get();
+            // dd($collection);
+        }else{
         $collection=$member->get();
+        }
         return view('Committees.EventMembers')->with('collection',$collection);
     }
+  
     public function getAllCommittees(){
 
         $committees = new Committees();
         $committees=$committees->get();
-
         return view('Committees.home')->with('committees',$committees);
      }
     public function getAppointments(Request $request )

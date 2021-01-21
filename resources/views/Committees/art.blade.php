@@ -1,6 +1,7 @@
 @extends('layout.master')
 @section('title')
     Open Source Community | Art Commitee
+
 @endsection
 @section('cssFile')
 <link rel="stylesheet" href="{{asset('css/queries/committiee.css')}}" />
@@ -31,4 +32,5 @@
 		<img class="committee-illustration" src="{{asset('assets/committe_illustrations/Art.svg')}}">
 	</section>
 </div>
+
 @endsection

@@ -22,6 +22,7 @@
         <title>@yield('title')</title>
         
         
+
         <style>
           
 </style>

@@ -3,8 +3,9 @@
     Open Source Community | Home
 @endsection
 @section('cssFile')
-<link rel="stylesheet" href="{{asset('css/app.css')}}" />
-<link rel="stylesheet" href="{{asset('css/queries/app.css')}}" />
+
+<link rel="stylesheet" href="{{asset('css/queries/committiee.css')}}" />
+<link rel="stylesheet" href="{{asset('css/committee.css')}}" />
 @endsection
 @section('content')
 
@@ -138,5 +139,4 @@
       </a>
   </div>
 </div>
-
 @endsection
