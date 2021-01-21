@@ -4,8 +4,8 @@
 @endsection
 @section('cssFile')
 
-<link rel="stylesheet" href="{{asset('css/queries/committiee.css')}}" />
-<link rel="stylesheet" href="{{asset('css/committee.css')}}" />
+<link rel="stylesheet" href="{{asset('css/queries/app.css')}}" />
+<link rel="stylesheet" href="{{asset('css/front.css')}}" />
 @endsection
 @section('content')
 
