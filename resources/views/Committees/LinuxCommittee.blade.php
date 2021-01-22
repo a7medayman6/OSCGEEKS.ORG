@@ -1,7 +1,7 @@
 @extends('layout.back')
 @section('content')
 <h1>Linux Committee</h1>
-<form action="{{route('Insert','7')}}" method="POST">
+<form action="{{route('Insert','Linux')}}" method="POST">
         {{ csrf_field() }}
 
         <div class="row py-2">
@@ -53,7 +53,7 @@
                                 <td>{{$appointments->date}}</td>
                                 <td>{{$appointments->time}}</td>
                                 <td>{{$appointments->numberOfSeats}}</td>
-                                <td><a href="{{route('Delete',['committee_id'=>'7','id'=>$appointments->id])}}" class="btn btn-danger">Delete</a></td>
+                                <td><a href="{{route('Delete',['committee_name'=>'Linux','id'=>$appointments->id])}}" class="btn btn-danger">Delete</a></td>
 
                             </tr>
                        @endforeach

@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class workshop extends Model
 {
-    protected $fillable = ['name','email','phone','college','studentYear','workshop'];
+    protected $fillable = ['name','email','phone','college','studentYear','workshop',"interview_time"];
     
    public static function store($request){
 // dd($request->all());
@@ -19,6 +19,7 @@ class workshop extends Model
         'college' => $request->studentCollege,
         'studentYear' => $request->studentYear,
         'workshop' => $request->workshop_name,
+        'interview_time' => $request->interview_time,
         "created_at" => date("Y-m-d h:i:sa")
     ]);
    }

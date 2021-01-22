@@ -10,7 +10,8 @@ class Committees extends Model
     protected $primaryKey = 'id';
     protected $fillable =
     [
-        'name'
+        'name',
+        'id'
 
     ];
     protected $hidden=['created_at','updated_at'];

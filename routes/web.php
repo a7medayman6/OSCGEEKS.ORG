@@ -33,7 +33,7 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('/{id}','App\Http\Controllers\eventController@deleteMember')->name('deleteMember');
     Route::get('/EventAppointment/{committee_id}','App\Http\Controllers\AppointmentsController@getAllAppoitments')->name('GetAll');
     Route::post('/EventAppointment/{committee_id}', 'App\Http\Controllers\AppointmentsController@insertAppoitment')->name('Insert');
-    Route::get('/EventAppointment/{committee_id}/{id}', 'App\Http\Controllers\AppointmentsController@deleteAppointment')->name('Delete');
+    Route::get('/EventAppointment/{committee_name}/{id}', 'App\Http\Controllers\AppointmentsController@deleteAppointment')->name('Delete');
 });
 Route::get('/home/registeration', 'App\Http\Controllers\AppointmentsController@registerationView')->name('registeration.meeting');
 Route::get('/aboutUs', 'App\Http\Controllers\AppointmentsController@aboutUsView')->name('aboutUs.view');
