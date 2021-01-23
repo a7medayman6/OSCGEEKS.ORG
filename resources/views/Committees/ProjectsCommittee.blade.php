@@ -48,6 +48,10 @@
                     </thead>
                     <tbody>
                        @foreach ($appointments as $appointments)
+                       @php
+                            // Convert 24 Time Format to 12 hour format
+                            $appointments->time = date('h:i a', strtotime($appointments->time));
+                        @endphp
                             <tr>
                                 <td>{{$appointments->id}}</td>
                                 <td>{{$appointments->date}}</td>
@@ -62,4 +66,5 @@
             </div>
         </div>
 @endsection
+
 
