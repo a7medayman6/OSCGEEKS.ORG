@@ -238,7 +238,6 @@ $(document).ready(function () {
 
                 var cartonaDate='<option selected="selected" hidden></option>';
                 // var cartonaTime=`<option selected="selected" hidden></option>`;
-                 console.log(response.length);
                  if (response.length > 0)
                 {
                     response.forEach(element => {

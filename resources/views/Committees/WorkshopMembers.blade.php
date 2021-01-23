@@ -28,6 +28,7 @@
                     <th scope="col">College</th>
                     <th scope="col">Year</th>
                     <th scope="col">workshop name</th>
+                    <th scope="col">Interview time</th>
               
                     <th></th>
                   </tr>
@@ -43,6 +44,7 @@
                             <td>{{$member->college}}</td>
                             <td>{{$member->studentYear}}</td>
                             <td>{{$member->workshop}}</td>
+                            <td>{{$member->interview_time}}</td>
                         </tr>
                     @endforeach
                 </tbody>

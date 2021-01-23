@@ -26,9 +26,7 @@ Route::get('/appointments','App\Http\Controllers\eventController@getAppointments
 // });
 
 
-Route::group(['prefix' => 'admin'], function () {
-
-
+Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::get('/EventMembers/{key?}','App\Http\Controllers\eventController@getAllMembers')->name('EventMembers');
     Route::get('/{id}','App\Http\Controllers\eventController@deleteMember')->name('deleteMember');
     Route::get('/EventAppointment/{committee_id}','App\Http\Controllers\AppointmentsController@getAllAppoitments')->name('GetAll');
