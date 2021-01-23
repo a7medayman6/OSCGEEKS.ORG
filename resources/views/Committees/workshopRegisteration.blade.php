@@ -162,9 +162,10 @@ header .container{
                     <div class="col-md-12">
                     
                         <label> Date & Time *</label>
-                        <select name="studentDateA" id="studentDateA"required>
+                        <select name="interview_time" id="interview_time"required>
                         </select>
-                        @error('studentDateA')
+                        <input id='interview_time_id' name='interview_time_id'hidden>
+                        @error('interview_time')
                         <h6 class="text-danger">{{ $message }}</h6>
                         @enderror
                     </div>
@@ -191,7 +192,8 @@ $(document).ready(function () {
 
     document.getElementById("workshop_name").onchange=function()
     {
-        var index = this.selectedIndex;
+        var index = this.value;
+        // debugger;
         $.ajax({
             type: "get",
             url: "{{route('appointmentsAjax')}}",
@@ -209,8 +211,9 @@ $(document).ready(function () {
                 {
                     response.forEach(element => {
                         if(element.numberOfSeats > 0)
-                        {
-                            cartonaDate+=`<option value="${element.date +' '+'(' +element.time +')' +'#'+element.id}">${element.date}  (${element.time})</option>`;
+                        {  
+                            console.log(element);
+                            cartonaDate+='<option id="'+element.id + '"'+'value='+element.date +' '+' ' +element.time +'' +'#'+element.id+'>'+element.date+ '\t'+element.time+'</option>';
                             // cartonaTime+=`<option value="${element.time}">${element.time}</option>`;
                         }
                     });
@@ -227,14 +230,14 @@ $(document).ready(function () {
                     }
 
 
-                    $("#studentDateA").html(cartonaDate) ;
+                    $("#interview_time").html(cartonaDate) ;
                     // $("#studentTimeA").html(cartonaTime) ;
                 }
                 else
                 {
                     cartonaDate+=`<option value="waitting" disabled selected>waitting</option>`;
                     // cartonaTime+=`<option value="waitting" disabled selected>waitting</option>`;
-                    $("#studentDateA").html(cartonaDate) ;
+                    $("#interview_time").html(cartonaDate) ;
                     // $("#studentTimeA").html(cartonaTime) ;
                 }
 
@@ -245,9 +248,22 @@ $(document).ready(function () {
         });
     };
 
+ 
+    $("#interview_time").change(function() {
+          
+          $id = $('#interview_time option:selected').attr("id");
+          $('#interview_time_id').val($id);
+          console.log($id);
+        });
+
 });
 
 </script>
+    <script>
+      
 
+    
+
+    </script>
 @endsection
   

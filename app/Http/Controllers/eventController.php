@@ -126,7 +126,10 @@ class eventController extends Controller
      }
     public function getAppointments(Request $request )
     {
-        $committee_id=$request->name;
+        // dd($request->name);
+        $committee_name=$request->name;
+        $committee_id = Committees::where('name','like',$committee_name)->where('name','>','0')->first()->id;
+        // dd($committee_id);
         $appointments= DB::table('appointments')->where('committee_id',$committee_id)->get();
         return $appointments;
 

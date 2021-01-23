@@ -22,37 +22,37 @@
             <a class="nav-link" href="{{route('workshop.registration.table')}}">workshop Members request <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{route('GetAll','1')}}">Art</a>
+              <a class="nav-link" href="{{route('GetAll','Art')}}">Art</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{route('GetAll','2')}}">Blender</a>
+              <a class="nav-link" href="{{route('GetAll','Blender')}}">Blender</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{route('GetAll','3')}}">CCC</a>
+                <a class="nav-link" href="{{route('GetAll','ccc')}}">CCC</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{route('GetAll','4')}}">English</a>
+                <a class="nav-link" href="{{route('GetAll','English')}}">English</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{route('GetAll','5')}}">Game</a>
+                <a class="nav-link" href="{{route('GetAll','Game')}}">Game</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{route('GetAll','6')}}">HR</a>
+                <a class="nav-link" href="{{route('GetAll','HR')}}">HR</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{route('GetAll','7')}}">Linux</a>
+                <a class="nav-link" href="{{route('GetAll','Linux')}}">Linux</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{route('GetAll','8')}}">LR</a>
+                <a class="nav-link" href="{{route('GetAll','LR')}}">LR</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{route('GetAll','9')}}">PR</a>
+                <a class="nav-link" href="{{route('GetAll','PR')}}">PR</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{route('GetAll','10')}}">Projects</a>
+                <a class="nav-link" href="{{route('GetAll','Project')}}">Projects</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{route('GetAll','11')}}">Web</a>
+                <a class="nav-link" href="{{route('GetAll','Web')}}">Web</a>
             </li>
           </ul>
         </div>

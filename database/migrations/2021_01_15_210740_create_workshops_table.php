@@ -21,8 +21,7 @@ class CreateWorkshopsTable extends Migration
             $table->string("college");
             $table->string("studentYear");
             $table->string("workshop");
-          
-           
+            $table->string("interview_time");
             $table->timestamps();
         });
     }
