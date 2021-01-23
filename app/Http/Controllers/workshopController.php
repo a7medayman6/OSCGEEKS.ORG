@@ -34,8 +34,8 @@ class workshopController extends Controller
             // dd($request->all());
             $validition = Validator::make($request->all(), [
                 'name' => ['required', 'string', 'max:255'],
-                'email' => ['required', 'string', 'email', 'max:255'],
-                'studentPhone' => ['required', 'numeric', 'digits:11'],
+                'email' => ['required', 'string', 'email', 'max:255', 'unique:workshops'],
+                'studentPhone' => ['required', 'numeric', 'digits:11', 'unique:workshops,phone'],
                 'studentCollege' => ['required', 'string', 'max:255'],
                 'studentYear' => ['required', 'numeric'],
                 'interview_time' => ['required', 'string', 'max:255']

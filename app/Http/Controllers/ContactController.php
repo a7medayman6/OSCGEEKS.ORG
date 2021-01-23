@@ -20,7 +20,7 @@ class ContactController extends Controller
 
         // Send email
         
-        Mail::to('marwanelgendy@gmail.com')->send(new ContactForm($data));
+        Mail::to('oschrs@gmail.com')->send(new ContactForm($data));
        session()->flash('success','Email Sent Successfully'); 
        return redirect()->back();
         

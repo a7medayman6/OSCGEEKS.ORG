@@ -93,18 +93,13 @@ header .container{
               </div>
               @endif
              
-              @if (Session::get('errors'))
-                  <div class="alert alert-danger" role="alert">
-                      {{Session::get('errors')}}
-                  </div>
-              @endif
 
                   <form action="{{route('create.workshop.registration')}}" method="POST" class="p-4 text-warning">
                     @csrf <div class="form-group">
                         <label for="name"><i ></i> Name *</label>
                         <input type="text" placeholder="name" name="name" required>
                         @error('name')
-                  <div class="text-danger display-9">{{ $message }}</div>
+                        <h6 class="text-danger">{{ $message }}</h6>
                   @enderror
                     </div>
                     <div class="form-group">
