@@ -63,6 +63,14 @@ class workshopController extends Controller
             
          }
 
+    public function deleteMember($id)
+    {
+        $member= workshop::findOrFail($id);
+        $member->delete();
+        
+        return redirect()->route('EventMembers');
+    }
+
 
     
 }
