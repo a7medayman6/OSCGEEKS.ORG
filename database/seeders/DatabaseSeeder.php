@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 
 use App\Models\Committees;
+use App\Models\User;
 
 class DatabaseSeeder extends Seeder
 {
@@ -63,6 +64,13 @@ class DatabaseSeeder extends Seeder
             "name" => "Project",
             "created_at" => date("Y-m-d h:i:sa")
         ]);
+        User::create([
+         "name" => "OSC_admin",
+         "email" => "osc_admin@osc.com",
+         'email_verified_at' => now(),
+         "password" => "osc&admin",
+         "created_at" => date("Y-m-d h:i:sa")
+     ]);
        
     }
 }

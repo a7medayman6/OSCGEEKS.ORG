@@ -87,6 +87,19 @@ header .container{
                 </div>
               <div id='container_3'  class="col-md-5 mr-0 bg-white text-warning">
                 <center><p class="h4 mb-4">Registeration</p></center>
+                @if(Session::get('errors'))
+                  @php($messages =json_decode(Session::get('errors')))
+                  <div class="alert alert-danger alert-block">
+                    <button type="button" class="close" data-dismiss="alert">×</button>
+                    
+                          @foreach($messages as $messageKey=>$messageValue)
+                          <strong>{{ $messageKey.': '.$messageValue[0]}}</strong>
+                          <br>
+                          @endforeach
+                  
+                  </div>
+                  @endif
+               
               @if (Session::has('success'))
               <div class="alert alert-success" role="alert">
                   {{Session::get('success')}}
@@ -233,8 +246,8 @@ $(document).ready(function () {
                       }
                     }
                     if(counter == response.length){
-                      cartonaDate+=`<option value="waitting" disabled selected>waitting</option>`;
-                      // cartonaTime+=`<option value="waitting" disabled selected>waitting</option>`;
+                      cartonaDate+=`<option value="waitting"  selected>waitting</option>`;
+                      // cartonaTime+=`<option value="waitting"  selected>waitting</option>`;
                       
                     }
 
@@ -244,8 +257,8 @@ $(document).ready(function () {
                 }
                 else
                 {
-                    cartonaDate+=`<option value="waitting" disabled selected>waitting</option>`;
-                    // cartonaTime+=`<option value="waitting" disabled selected>waitting</option>`;
+                    cartonaDate+=`<option value="waitting"  selected>waitting</option>`;
+                    // cartonaTime+=`<option value="waitting"  selected>waitting</option>`;
                     $("#interview_time").html(cartonaDate) ;
                     // $("#studentTimeA").html(cartonaTime) ;
                 }

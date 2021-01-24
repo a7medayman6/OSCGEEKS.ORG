@@ -38,7 +38,8 @@ class workshopController extends Controller
                 'studentPhone' => ['required', 'numeric', 'digits:11', 'unique:workshops,phone'],
                 'studentCollege' => ['required', 'string', 'max:255'],
                 'studentYear' => ['required', 'numeric'],
-                'interview_time' => ['required', 'string', 'max:255']
+                'interview_time' => ['required', 'string', 'max:255'],
+                'interview_time_id' => ['nullable', 'exists:appointments,id']
                 //'workshop_name' => ['required', 'string', 'max:255','exists:committees,name'],
                 // 'studentCommitteeB' => ['required', 'string', 'max:255', 'confirmed','exists:committees,name'],
             ]);
@@ -46,22 +47,24 @@ class workshopController extends Controller
             if($validition->fails()){
                 return redirect()->back()->withErrors($validition->errors()->messages());
             }
+            // dd($request->all());
             //interview_time_id
+            if($request->interview_time_id !=null){
              $interview = Appointments::find($request->interview_time_id);
              if($interview->numberOfSeats > 0){
              $interview->numberOfSeats--;
              $interview->save();
             //  dd($interview->numberOfSeats);
             workshop::store($request);
-            
-
-            Mail::to($request['email'])->send(new automaticMail($request));
+            // Mail::to($request['email'])->send(new automaticMail($request));
             return redirect()->back()->withSuccess("Your registration is done successfully");
-             }else{
-                return redirect()->back()->withErrors("the data you selected is complete please, slelect another data");
+             }
+            }
+             workshop::store($request);
+                return redirect()->back()->withErrors("the data you selected is complete please, wait and we connect with you");
              }
             
-         }
+         
 
     public function deleteMember($id)
     {

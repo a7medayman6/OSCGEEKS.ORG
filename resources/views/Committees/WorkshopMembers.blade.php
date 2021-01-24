@@ -45,7 +45,7 @@
                             <td>{{$member->studentYear}}</td>
                             <td>{{$member->workshop}}</td>
                             <td>{{$member->interview_time}}</td>
-                            <td><a href="{{route('deleteWorkshopMember',$member->id)}}" class="btn btn-danger">Delete</a></td>
+                            <!-- <td><a href="{{route('deleteWorkshopMember',$member->id)}}" class="btn btn-danger">Delete</a></td> -->
                         </tr>
                     @endforeach
                 </tbody>

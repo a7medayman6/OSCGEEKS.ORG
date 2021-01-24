@@ -54,6 +54,7 @@ Route::get('/workshop/registration/form','App\Http\Controllers\workshopControlle
 // admin-board table to registration data
 Route::get('/workshop/registration/show/table/{key?}','App\Http\Controllers\workshopController@workshop_view_table')->name('workshop.registration.table');
 //create registrar to work shop
+
 Route::post('/create/workshop/registration','App\Http\Controllers\workshopController@create_workshop_registration')->name('create.workshop.registration');
 
 
