@@ -56,7 +56,7 @@ class workshopController extends Controller
              $interview->save();
             //  dd($interview->numberOfSeats);
             workshop::store($request);
-            // Mail::to($request['email'])->send(new automaticMail($request));
+            Mail::to($request['email'])->send(new automaticMail($request));
             return redirect()->back()->withSuccess("Your registration is done successfully");
              }
             }
