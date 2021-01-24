@@ -61,7 +61,7 @@ class workshopController extends Controller
              }
             }
              workshop::store($request);
-                return redirect()->back()->withErrors("the data you selected is complete please, wait and we connect with you");
+                return redirect()->back()->withSuccess("We have added your name to the waiting list.");
              }
             
          
