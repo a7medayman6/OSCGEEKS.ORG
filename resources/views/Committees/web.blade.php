@@ -20,7 +20,7 @@
                 We operate using modern technlogies and methodologies and that what sets us apart.
             </p>
             <a data-aos="fade-up" data-aos-duration="1000" data-aos-delay="750" class="btn" id="hero-btn"
-                href="registeration-closed.html">
+                href="{{route('workshop.registration.form')}}">
                 Register to web committee
                 <ion-icon name="arrow-forward-outline"></ion-icon>
             </a>

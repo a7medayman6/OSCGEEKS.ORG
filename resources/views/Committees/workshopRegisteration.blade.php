@@ -221,7 +221,7 @@ $(document).ready(function () {
                         if(element.numberOfSeats > 0)
                         {  
                             element.time = tConvert(element.time);
-                            console.log(element);
+                            // console.log(element);
                             cartonaDate+=`<option id="${element.id}" value="${element.date +' '+'(' +element.time +')'}">${element.date}  (${element.time})</option>`;
                             // cartonaDate+='<option id="'+element.id + '"'+'value='+element.date +' '+' ' +element.time +'' +'#'+element.id+'>'+element.date+ '\t'+element.time+'</option>';
                             // cartonaTime+=`<option value="${element.time}">${element.time}</option>`;

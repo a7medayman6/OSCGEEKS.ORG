@@ -287,3 +287,11 @@ img {
 .break-all {
     word-break: break-all;
 }
+
+u{
+    text-decoration: underline;
+    font-weight: bold;
+}
+.red{
+    color: rgb(157, 24, 17);
+}
