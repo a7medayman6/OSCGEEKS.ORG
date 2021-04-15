@@ -18,7 +18,7 @@ Route::get('/','App\Http\Controllers\eventController@getAllCommittees')->name('h
 Route::post('/registration','App\Http\Controllers\eventController@store')->name('registration');
 
 //Route::get('/registration','App\Http\Controllers\eventController@registrationView')->name('registrationView');
-Route::get('/registration','App\Http\Controllers\eventController@registrationView')->name('registrationView');
+Route::get('/registrationView','App\Http\Controllers\eventController@registrationView')->name('registrationView');
 Route::get('/appointments','App\Http\Controllers\eventController@getAppointments')->name('appointmentsAjax');
 
 // Route::get('/admin',function (){

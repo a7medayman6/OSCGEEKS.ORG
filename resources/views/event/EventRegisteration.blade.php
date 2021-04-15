@@ -90,6 +90,9 @@ header .container{
               @if (Session::has('success'))
               <div class="alert alert-success" role="alert">
                   {{Session::get('success')}}
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                 </button>
               </div>
               @endif
               @if (Session::has('fail'))
@@ -166,7 +169,7 @@ header .container{
                             <option value="{{$committee->name}}">{{$committee->name}}</option>
                           @endforeach
                         </select>
-                        @error('studentCommitteeA')
+                        @error('studentCommitteeB')
                         <h6 class="text-danger">{{ $message }}</h6>
                         @enderror
                   </div>
@@ -174,7 +177,7 @@ header .container{
                     <div class="row">
                     <div class="col-md-12">
                     
-                        <label> Date & Time *</label>
+                        <label> Date & Time *</label>    
                         <select  name="studentDateA" id="studentDateA" required>
                         </select>
                         @error('studentDateA')
@@ -224,7 +227,9 @@ $(document).ready(function () {
 
     document.getElementById("studentCommitteeA").onchange=function()
     {
-        var index = this.selectedIndex;
+        var index = this.value;
+        // debugger;
+        // console.log(index);
         $.ajax({
             type: "get",
             url: "{{route('appointmentsAjax')}}",
@@ -254,8 +259,8 @@ $(document).ready(function () {
                       }
                     }
                     if(counter == response.length){
-                      cartonaDate+=`<option value="waitting" disabled selected>waitting</option>`;
-                      // cartonaTime+=`<option value="waitting" disabled selected>waitting</option>`;
+                      cartonaDate+=`<option value="waitting" selected>waitting</option>`;
+                      // cartonaTime+=`<option value="waitting" selected>waitting</option>`;
                       
                     }
                    
@@ -265,15 +270,15 @@ $(document).ready(function () {
                 }
                 else
                 {
-                    cartonaDate+=`<option value="waitting" disabled >waitting</option>`;
-                    // cartonaTime+=`<option value="waitting" disabled selected>waitting</option>`;
+                    cartonaDate+=`<option value="waitting" >waitting</option>`;
+                    // cartonaTime+=`<option value="waitting" selected>waitting</option>`;
                     $("#studentDateA").html(cartonaDate) ;
                     // $("#studentTimeA").html(cartonaTime) ;
                 }
 
             },
             error:function(reject){
-                console.log(reject);
+                // console.log(reject);
             }
         });
     };
@@ -285,7 +290,8 @@ $(document).ready(function () {
 
   document.getElementById("studentCommitteeB").onchange=function()
   {
-      var index = this.selectedIndex;
+      var index = this.value;
+      
       $.ajax({
           type: "get",
           url: "{{route('appointmentsAjax')}}",
@@ -295,7 +301,7 @@ $(document).ready(function () {
           },
           success: function (response) {
 
-              // console.log(response);
+              console.log(response);
 
               var cartonaDate='<option selected="selected" hidden></option>';
               var cartonaTime=`<option selected="selected" hidden></option>`;
@@ -315,8 +321,8 @@ $(document).ready(function () {
                     }
                   }
                   if(counter == response.length){
-                    cartonaDate+=`<option value="waitting" disabled selected>waitting</option>`;
-                    cartonaTime+=`<option value="waitting" disabled selected>waitting</option>`;
+                    cartonaDate+=`<option value="waitting" selected>waitting</option>`;
+                    cartonaTime+=`<option value="waitting" selected>waitting</option>`;
 
                   }
 
@@ -326,15 +332,15 @@ $(document).ready(function () {
               }
               else
               {
-                  cartonaDate+=`<option value="waitting" disabled selected>waitting</option>`;
-                  cartonaTime+=`<option value="waitting" disabled selected>waitting</option>`;
+                  cartonaDate+=`<option value="waitting" selected>waitting</option>`;
+                  cartonaTime+=`<option value="waitting" selected>waitting</option>`;
                   $("#studentDateB").html(cartonaDate) ;
                   $("#studentTimeB").html(cartonaTime) ;
               }
 
           },
           error:function(reject){
-              console.log(reject);
+              // console.log(reject);
           }
       });
   };

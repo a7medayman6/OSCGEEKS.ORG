@@ -7,12 +7,32 @@ use App\Models\Appointments;
 use App\Models\Committees;
 use App\Models\Event;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\automaticMail;
 
 class eventController extends Controller
 {
     public function store(StoreStudentData $request)
     {
+        // dd($request->all());
+        $validition = Validator::make($request->all(), [
+            'name' => ['required', 'string', 'max:255'],
+            'studentEmail' => ['required', 'string', 'email', 'max:255', 'unique:events,email'],
+            'studentPhone' => ['required', 'numeric', 'digits:11', 'unique:events,phone'],
+            'studentCollege' => ['required', 'string', 'max:255'],
+            'studentYear' => ['required', 'numeric'],
+            'interview_time' => ['required', 'string', 'max:255'],
+            'interview_time_id' => ['nullable', 'exists:appointments,id']
+            //'workshop_name' => ['required', 'string', 'max:255','exists:committees,name'],
+            // 'studentCommitteeB' => ['required', 'string', 'max:255', 'confirmed','exists:committees,name'],
+        ]);
+        // dd($validition->errors()->messages());
+        if($validition->fails()){
+            return redirect()->back()->withErrors($validition->errors()->messages());
+        }
+
         $member=new Event();
         $Exist = Event::where('phone',$request->studentPhone)->first();
         // if($Exist > '0')
@@ -97,7 +117,7 @@ class eventController extends Controller
         $data=$request->all();
     
         $status = $member->saveOrFail();
-
+        Mail::to($request['studentEmail'])->send(new automaticMail($request));
         if ($status) {
             return redirect()->back()->with(['success'=>'Registration Successfully!']);
         } else {
@@ -138,7 +158,7 @@ class eventController extends Controller
     public function registrationView(){
         $committees = new Committees();
         $committees = $committees->get();
-        return view('Committees.EventRegisteration')->with('committees',$committees);
+        return view('event.EventRegisteration')->with('committees',$committees);
     }
 
     public function deleteMember($id)
